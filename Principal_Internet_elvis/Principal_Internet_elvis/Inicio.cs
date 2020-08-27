@@ -18,6 +18,9 @@ namespace Proyecto_Internet
     
     public partial class Inicio : Form
     {
+
+        
+
         public Inicio()
         {
             InitializeComponent();  
@@ -74,7 +77,6 @@ namespace Proyecto_Internet
         private void Inicio_Load(object sender, EventArgs e)
         {
             
-            
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
@@ -84,14 +86,6 @@ namespace Proyecto_Internet
             Visible = false;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtContra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

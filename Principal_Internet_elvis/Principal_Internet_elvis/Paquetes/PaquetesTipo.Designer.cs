@@ -100,7 +100,7 @@
             this.dgv_tabla.MultiSelect = false;
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
-            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgv_tabla.Size = new System.Drawing.Size(417, 202);
             this.dgv_tabla.TabIndex = 4;
             // 

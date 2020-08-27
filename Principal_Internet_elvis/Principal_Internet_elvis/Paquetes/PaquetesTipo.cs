@@ -119,6 +119,18 @@ namespace Principal_Internet_elvis.Paquetes
             {
                 MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
             }
+            for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+            {
+                if (dgv_tabla.Rows[i].Cells["estado"].Value.ToString().Equals("Activo"))
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                }
+                else
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+                dgv_tabla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+            }
 
 
         }

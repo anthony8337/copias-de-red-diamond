@@ -39,14 +39,12 @@ namespace Principal_Internet_elvis
         public static Estado_cliente estado_Cliente;
         public static Socios socios;
         public static Bus_factura bus_Factura;
-        
-
         public static Pago pago;
-
         public static Clientes clientes;
         public static ClientesPaquetes clientesPaquetes;
         public static ReportesTipo reportesTipo;
         public static Servicios servicios;
+        
 
         [STAThread]
         static void Main()
@@ -59,6 +57,9 @@ namespace Principal_Internet_elvis
 
         public static void actualizarFuente()
         {
+
+           
+
             principal.addFuente(principal.fuente);
         }
 

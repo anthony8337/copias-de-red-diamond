@@ -17,6 +17,10 @@ namespace Principal_Internet_elvis.Paquetes
     {
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
         SqlCommand cm;
+        public static string P_servicio;
+        public static string S_servicio;
+        public static string Pre_P_servicio;
+        public static string Pre_S_servicio;
 
         public PaquetesAgregar()
         {
@@ -161,7 +165,13 @@ namespace Principal_Internet_elvis.Paquetes
             
         }
 
-        
+        public void ingresar()
+        {
+            txt_p_servicio.Text = P_servicio;
+            txt_pre_p_servicio.Text = Pre_P_servicio;
+            txt_s_servicio.Text = S_servicio;
+            txt_pre_s_servicio.Text = Pre_S_servicio;
+        }
 
         private void bt_aceptar_Click(object sender, EventArgs e)
         {
@@ -179,6 +189,35 @@ namespace Principal_Internet_elvis.Paquetes
         private void btn_borrar_Click(object sender, EventArgs e)
         {
             borrar();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Program.paquetesElegir = new PaquetesElegir();
+            Program.paquetesElegir.Text = "ELEGIR EL PRIMER SERVICIO";
+            Program.paquetesElegir.BringToFront();
+            Program.paquetesElegir.Show();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ingresar();
+        }
+        
+
+
+        private void PaquetesAgregar_Activated(object sender, EventArgs e)
+        {
+            ingresar();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.paquetesElegir = new PaquetesElegir();
+            Program.paquetesElegir.Text = "ELEGIR EL SEGUNDO SERVICIO";
+            Program.paquetesElegir.BringToFront();
+            Program.paquetesElegir.Show();
         }
     }
 }

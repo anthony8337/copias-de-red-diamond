@@ -44,9 +44,8 @@
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_tabla.Size = new System.Drawing.Size(710, 205);
+            this.dgv_tabla.Size = new System.Drawing.Size(386, 205);
             this.dgv_tabla.TabIndex = 0;
-            this.dgv_tabla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellClick);
             // 
             // bt_aceptar
             // 
@@ -72,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 277);
+            this.ClientSize = new System.Drawing.Size(410, 277);
             this.Controls.Add(this.bt_cancelar);
             this.Controls.Add(this.bt_aceptar);
             this.Controls.Add(this.dgv_tabla);

@@ -98,6 +98,7 @@
             this.button2.Text = "BUSCAR SERVICIO";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txt_p_servicio
             // 
@@ -192,6 +193,7 @@
             this.button1.Text = "BUSCAR SERVICIO";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_s_servicio
             // 
@@ -267,6 +269,7 @@
             this.Name = "PaquetesAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaquetesAgregar";
+            this.Activated += new System.EventHandler(this.PaquetesAgregar_Activated);
             this.Load += new System.EventHandler(this.PaquetesAgregar_Load);
             this.gb_codigo.ResumeLayout(false);
             this.gb_codigo.PerformLayout();

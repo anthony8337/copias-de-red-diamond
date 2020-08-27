@@ -117,6 +117,8 @@ namespace Proyecto_dawelin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
             Program.inicio = new Inicio();
             Program.inicio.Show();
             Program.inicio.TopMost = true; 

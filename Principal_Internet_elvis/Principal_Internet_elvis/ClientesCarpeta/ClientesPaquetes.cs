@@ -13,7 +13,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 {
     public partial class ClientesPaquetes : Form
     {
-        public int row = -1, id;
+        
 
         public ClientesPaquetes()
         {
@@ -34,7 +34,6 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             Program.paquetesElegir.TopMost = true;
             Program.paquetesElegir.BringToFront();
             Program.paquetesElegir.Text = "ELEGIR-PAQUETES";
-            Program.paquetesElegir.id_cliente = id;
             Program.paquetesElegir.Show();
             Program.paquetesElegir.Focus();
         }
@@ -77,7 +76,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         private void dgv_tabla_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            row = dgv_tabla.CurrentRow.Index;
+            
         }
     }
 }

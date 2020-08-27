@@ -90,7 +90,7 @@
             this.groupBox2.Size = new System.Drawing.Size(288, 50);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "NOMBRES-APELLIDOS/BUSCAR";
+            this.groupBox2.Text = "NOMBRES-APELLIDOS";
             // 
             // txt_nombre
             // 
