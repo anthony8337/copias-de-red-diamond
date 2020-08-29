@@ -76,7 +76,7 @@ namespace Proyecto_Internet
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)

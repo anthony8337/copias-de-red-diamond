@@ -97,7 +97,7 @@ namespace Principal_Internet_elvis.Paquetes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("La accion no se pudo realizar: " + ex.ToString());
+                MessageBox.Show("Este servicio esta en uso. \nVerifique si no hay ningun paquete que lo este utilizando.");
             }
 
         }

@@ -207,7 +207,7 @@
             // img_logo
             // 
             this.img_logo.BackColor = System.Drawing.Color.SlateGray;
-            this.img_logo.Image = global::Principal_Internet_elvis.Properties.Resources.logo;
+            this.img_logo.Image = global::Principal_Internet_elvis.Properties.Resources.Logo_del_proyecto;
             this.img_logo.Location = new System.Drawing.Point(542, 21);
             this.img_logo.Name = "img_logo";
             this.img_logo.Size = new System.Drawing.Size(229, 219);
