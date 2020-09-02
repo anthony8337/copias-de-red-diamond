@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Principal_Internet_elvis.Ubicacion
 {
     public partial class UbicacionAgregar : Form
     {
-        private int id2;
-        private int row = -1, estado = -1;
+
+        SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
+        SqlCommand cm;
 
         public UbicacionAgregar()
         {
@@ -23,43 +26,95 @@ namespace Principal_Internet_elvis.Ubicacion
 
         private void UbicacionAgregar_Load(object sender, EventArgs e)
         {
-            limpiar();
+            cn.Open();
+            selecciona_tabla();
         }
+
+
+        public void agregar()
+        {
+            string agregar;
+
+            if (Text == "AGREGAR-COLONIA" )
+            {
+                agregar = "INSERT INTO Colonia (colonia,estado)VALUES(@colonia , @estado)";
+                try
+                {
+                    cm = new SqlCommand(agregar, cn);
+                    cm.Parameters.AddWithValue("@colonia",txt_nombre.Text);
+                    cm.Parameters.AddWithValue("@estado", "DESCONECTADO");
+                    cm.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se encontro fallas en: "+ex.ToString());
+                }
+                
+            }
+            else if (Text == "AGREGAR-BARRIO" )
+            {
+                agregar = "INSERT INTO Barrio (barrio,estado)VALUES(@barrio , @estado)";
+                try
+                {
+                    cm = new SqlCommand(agregar, cn);
+                    cm.Parameters.AddWithValue("@barrio", txt_nombre.Text);
+                    cm.Parameters.AddWithValue("@estado", "DESCONECTADO");
+                    cm.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se encontro fallas en: " + ex.ToString());
+                }
+            }
+            else if (Text == "AGREGAR-SECTOR" )
+            {
+                agregar = "INSERT INTO Sector (Sector,estado)VALUES(@Sector , @estado)";
+                try
+                {
+                    cm = new SqlCommand(agregar, cn);
+                    cm.Parameters.AddWithValue("@Sector", txt_nombre.Text);
+                    cm.Parameters.AddWithValue("@estado", "DESCONECTADO");
+                    cm.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se encontro fallas en: " + ex.ToString());
+                }
+            }
+        }
+
+
 
         private void bt_salir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void limpiar()
-        { }
-
+        
         public void agregarDatos(int id, string nombre)
-        {
-            id2 = id;
-            txt_codigo2.Text = nombre;
-        }
+        {}
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            botonAceptar();
+            agregar();
+            selecciona_tabla();
         }
 
-        private void bt_codigo2_Click(object sender, EventArgs e)
+        public void selecciona_tabla()
         {
-            if (this.Text.Equals("AGREGAR-BARRIO") || this.Text.Equals("MODIFICAR-BARRIO"))
+            if (Text == "AGREGAR-COLONIA" || Text == "MODIFICAR-COLONIA" || Text == "BUSCAR-COLONIA")
             {
-                Program.ubicacionElegir = new UbicacionElegir();
-                Program.ubicacionElegir.Text = "ELEGIR-SECTOR";
-                Program.ubicacionElegir.Show();
-                Program.ubicacionElegir.Focus();
+                groupBox3.Text = "NOMBRE DE LA COLONIA";
+                tablaColonia();
             }
-            else if (this.Text.Equals("AGREGAR-LUGAR") || this.Text.Equals("MODIFICAR-LUGAR"))
+            else if (Text == "AGREGAR-BARRIO" || Text == "MODIFICAR-BARRIO" || Text == "BUSCAR-BARRIO")
             {
-                Program.ubicacionElegir = new UbicacionElegir();
-                Program.ubicacionElegir.Text = "ELEGIR-BARRIO";
-                Program.ubicacionElegir.Show();
-                Program.ubicacionElegir.Focus();
+                groupBox3.Text = "NOMBRE DEL BARRIO";
+                tablaBarrio();
+            }
+            else if (Text == "AGREGAR-SECTOR" || Text == "MODIFICAR-SECTOR" || Text == "BUSCAR-SECTOR")
+            {
+                groupBox3.Text = "NOMBRE DEL SECTOR";
+                tablaSector();
             }
         }
 
@@ -67,48 +122,81 @@ namespace Principal_Internet_elvis.Ubicacion
         {
             if (e.KeyValue.Equals(13))
             {
-                botonAceptar();
+                
             }
         }
-
-        private void botonAceptar()
-        { }
-
+        
         private void dgv_tabla_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 selectedRowCount = dgv_tabla.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0 && Text.Contains("MODIFICAR") || 
-                selectedRowCount > 0 && Text.Contains("ESTADO"))
-            {
-                row = dgv_tabla.CurrentRow.Index;
-                seleccionar();
-            }
+
+            txt_codigo.Text = dgv_tabla.CurrentRow.Cells[0].Value.ToString();
+            txt_nombre.Text = dgv_tabla.CurrentRow.Cells[1].Value.ToString();
+
         }
 
-        private void seleccionar()
+
+
+        public void tablaColonia()
         {
-            if (this.Text.Contains("SECTOR"))
+
+            try
             {
-                txt_codigo.Text = dgv_tabla.Rows[row].Cells[0].Value.ToString();
-                txt_nombre.Text = dgv_tabla.Rows[row].Cells[1].Value.ToString();
-                estado = int.Parse(dgv_tabla.Rows[row].Cells[2].Value.ToString());
+                cm = new SqlCommand("Select * from Colonia", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
             }
-            else if (this.Text.Contains("BARRIO"))
+            catch (Exception e)
             {
-                txt_codigo.Text = dgv_tabla.Rows[row].Cells[0].Value.ToString();
-                txt_codigo2.Text = dgv_tabla.Rows[row].Cells[1].Value.ToString();
-                txt_nombre.Text = dgv_tabla.Rows[row].Cells[2].Value.ToString();
-                id2 = int.Parse(dgv_tabla.Rows[row].Cells[1].Value.ToString());
-                estado = int.Parse(dgv_tabla.Rows[row].Cells[3].Value.ToString());
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
             }
-            else if (this.Text.Contains("LUGAR"))
+            
+        }
+
+        public void tablaBarrio()
+        {
+
+            try
             {
-                txt_codigo.Text = dgv_tabla.Rows[row].Cells[0].Value.ToString();
-                txt_codigo2.Text = dgv_tabla.Rows[row].Cells[1].Value.ToString();
-                txt_nombre.Text = dgv_tabla.Rows[row].Cells[2].Value.ToString();
-                id2 = int.Parse(dgv_tabla.Rows[row].Cells[1].Value.ToString());
-                estado = int.Parse(dgv_tabla.Rows[row].Cells[3].Value.ToString());
+                cm = new SqlCommand("Select * from Barrio", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+
+        }
+
+        public void tablaSector()
+        {
+
+            try
+            {
+                cm = new SqlCommand("Select * from Sector", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+
+        }
+        
+        public void limpiar()
+        {
+            txt_codigo.Text = "";
+            txt_nombre.Text = "";
         }
 
         public void addFuente(Font f)

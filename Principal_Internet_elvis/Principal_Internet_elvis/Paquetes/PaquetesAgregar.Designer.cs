@@ -106,6 +106,7 @@
             // txt_p_servicio
             // 
             this.txt_p_servicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_p_servicio.Enabled = false;
             this.txt_p_servicio.Location = new System.Drawing.Point(6, 19);
             this.txt_p_servicio.MaxLength = 255;
             this.txt_p_servicio.Name = "txt_p_servicio";
@@ -200,6 +201,7 @@
             // 
             // txt_s_servicio
             // 
+            this.txt_s_servicio.Enabled = false;
             this.txt_s_servicio.Location = new System.Drawing.Point(6, 19);
             this.txt_s_servicio.MaxLength = 20;
             this.txt_s_servicio.Name = "txt_s_servicio";
@@ -260,6 +262,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(99, 20);
             this.textBox1.TabIndex = 8;
+            this.textBox1.Visible = false;
             // 
             // textBox2
             // 
@@ -267,6 +270,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(99, 20);
             this.textBox2.TabIndex = 9;
+            this.textBox2.Visible = false;
             // 
             // textBox3
             // 
@@ -274,6 +278,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 10;
+            this.textBox3.Visible = false;
             // 
             // PaquetesAgregar
             // 

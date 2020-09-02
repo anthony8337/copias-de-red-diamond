@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Principal_Internet_elvis.Ubicacion
 {
     public partial class UbicacionTipo : Form
     {
+        SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
+        SqlCommand cm;
+
         public UbicacionTipo()
         {
             InitializeComponent();
@@ -70,30 +76,57 @@ namespace Principal_Internet_elvis.Ubicacion
             Program.ubicacionAgregar = new UbicacionAgregar();
             if (this.Text.Equals("UBICACION-AGREGAR"))
             {
-                Program.ubicacionAgregar.Text = "AGREGAR-LUGAR";
+                Program.ubicacionAgregar.Text = "AGREGAR-COLONIA";
             }
             else if (this.Text.Equals("UBICACION-BUSCAR"))
             {
-                Program.ubicacionAgregar.Text = "BUSCAR-LUGAR";
+                Program.ubicacionAgregar.Text = "BUSCAR-COLONIA";
             }
             else if (this.Text.Equals("UBICACION-MODIFICAR"))
             {
-                Program.ubicacionAgregar.Text = "MODIFICAR-LUGAR";
+                Program.ubicacionAgregar.Text = "MODIFICAR-COLONIA";
             }
             else if (this.Text.Equals("UBICACION-ESTADO"))
             {
-                Program.ubicacionAgregar.Text = "ESTADO-LUGAR";
+                Program.ubicacionAgregar.Text = "ESTADO-COLONIA";
             }
             Program.ubicacionAgregar.Show();
             Program.ubicacionAgregar.Focus();
             this.Close();
         }
+        
+        public void tabla()
+        {
 
-        private void UbicacionTipo_Load(object sender, EventArgs e)
-        {}
+            try
+            {
+                cm = new SqlCommand("Select * from Cliente", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
 
-        private void txt_buscar_KeyDown(object sender, KeyEventArgs e)
-        {}
+            for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+            {
+                if (dgv_tabla.Rows[i].Cells["estado"].Value.ToString().Equals("Activo"))
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                }
+                else
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+                dgv_tabla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+            }
+
+
+        }
 
         public void addFuente(Font f)
         {

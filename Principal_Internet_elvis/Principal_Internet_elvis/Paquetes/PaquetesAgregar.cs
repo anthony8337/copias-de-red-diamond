@@ -117,9 +117,17 @@ namespace Principal_Internet_elvis.Paquetes
             try
             {
                 string borrar = "DELETE FROM Paquete WHERE idpaquete = @id";
+
+                string borrar2 = "DELETE FROM ServicioPaquete WHERE idpaquete = @id";
+                cm2 = new SqlCommand(borrar2,cn);
                 cm = new SqlCommand(borrar, cn);
+
                 cm.Parameters.AddWithValue("@id", txt_codigo.Text);
+                cm2.Parameters.AddWithValue("@id", txt_codigo.Text);
+
+                cm2.ExecuteNonQuery();
                 cm.ExecuteNonQuery();
+                
                 limpiar();
                 tabla();
             }
