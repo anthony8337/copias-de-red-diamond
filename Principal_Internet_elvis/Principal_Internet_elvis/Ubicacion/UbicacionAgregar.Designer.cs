@@ -36,9 +36,13 @@
             this.bt_agregar = new System.Windows.Forms.Button();
             this.bt_salir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gb_codigo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_codigo
@@ -64,7 +68,7 @@
             this.groupBox3.Controls.Add(this.txt_nombre);
             this.groupBox3.Location = new System.Drawing.Point(131, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(387, 52);
+            this.groupBox3.Size = new System.Drawing.Size(226, 52);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "NOMBRE";
@@ -75,7 +79,7 @@
             this.txt_nombre.Location = new System.Drawing.Point(6, 19);
             this.txt_nombre.MaxLength = 255;
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(375, 20);
+            this.txt_nombre.Size = new System.Drawing.Size(214, 20);
             this.txt_nombre.TabIndex = 1;
             this.txt_nombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_nombre_KeyDown);
             // 
@@ -90,7 +94,7 @@
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_tabla.Size = new System.Drawing.Size(506, 178);
+            this.dgv_tabla.Size = new System.Drawing.Size(613, 178);
             this.dgv_tabla.TabIndex = 3;
             this.dgv_tabla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellClick);
             // 
@@ -123,11 +127,42 @@
             this.button1.Text = "ELIMINAR";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Location = new System.Drawing.Point(363, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(262, 52);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ELIGE EL SECTOR";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(166, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 34);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "BUSCAR";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Location = new System.Drawing.Point(8, 19);
+            this.textBox1.MaxLength = 255;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(152, 20);
+            this.textBox1.TabIndex = 2;
+            // 
             // UbicacionAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 295);
+            this.ClientSize = new System.Drawing.Size(637, 300);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bt_salir);
             this.Controls.Add(this.bt_agregar);
@@ -137,12 +172,15 @@
             this.Name = "UbicacionAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UbicacionAgregar";
+            this.Activated += new System.EventHandler(this.UbicacionAgregar_Activated);
             this.Load += new System.EventHandler(this.UbicacionAgregar_Load);
             this.gb_codigo.ResumeLayout(false);
             this.gb_codigo.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -157,5 +195,8 @@
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.Button bt_salir;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

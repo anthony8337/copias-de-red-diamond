@@ -16,6 +16,8 @@ namespace Principal_Internet_elvis.Ubicacion
     public partial class UbicacionAgregar : Form
     {
 
+        public static string sector;
+
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
         SqlCommand cm;
 
@@ -26,6 +28,7 @@ namespace Principal_Internet_elvis.Ubicacion
 
         private void UbicacionAgregar_Load(object sender, EventArgs e)
         {
+            disponible();
             cn.Open();
             selecciona_tabla();
         }
@@ -226,5 +229,41 @@ namespace Principal_Internet_elvis.Ubicacion
                 e.Font = f;
             }
         }
+
+
+        public void disponible()
+        {
+            if(Text == "AGREGAR-SECTOR" || Text == "MODIFICAR-SECTOR" || Text == "BUSCAR-SECTOR")
+            {
+
+                groupBox1.Enabled = false;
+                groupBox1.Visible = false;
+
+            }
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            Program.ubicacionElegir = new UbicacionElegir();
+            Program.ubicacionElegir.Show();
+            Program.ubicacionElegir.TopMost = true;
+            Program.ubicacionElegir.Focus();
+            Program.ubicacionElegir.BringToFront();
+
+
+        }
+
+        private void UbicacionAgregar_Activated(object sender, EventArgs e)
+        {
+            caja();
+        }
+
+        public void caja()
+        {
+            textBox1.Text = sector;
+        }
+
     }
 }

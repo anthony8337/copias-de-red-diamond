@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Principal_Internet_elvis.Ubicacion
 {
     public partial class UbicacionElegir : Form
     {
+
+        SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
+        SqlCommand cm;
+
         public UbicacionElegir()
         {
             InitializeComponent();
@@ -24,33 +30,39 @@ namespace Principal_Internet_elvis.Ubicacion
 
         private void bt_aceptar_Click(object sender, EventArgs e)
         {
-            int row = dgv_tabla.CurrentRow.Index;
-            int id = 0;
-            string nombre = "";
 
-            if (this.Text.Equals("ELEGIR-SECTOR"))
-            {
-                id = Int32.Parse(dgv_tabla.Rows[row].Cells[0].Value.ToString());
-                nombre = dgv_tabla.Rows[row].Cells[1].Value.ToString();
-                Program.ubicacionAgregar.agregarDatos(id, nombre);
-            }
-            else if (this.Text.Equals("ELEGIR-BARRIO"))
-            {
-                id = Int32.Parse(dgv_tabla.Rows[row].Cells[0].Value.ToString());
-                nombre = dgv_tabla.Rows[row].Cells[2].Value.ToString();
-                Program.ubicacionAgregar.agregarDatos(id, nombre);
-            }
-            else if (this.Text.Equals("ELEGIR-LUGAR"))
-            {
-                id = Int32.Parse(dgv_tabla.Rows[row].Cells["idlugar"].Value.ToString());
-                nombre = dgv_tabla.Rows[row].Cells["lugar"].Value.ToString();
-                Program.clientes.agregarDatos(id, nombre);
-            }
+            string nombre = "";
+            nombre = dgv_tabla.CurrentRow.Cells[1].Value.ToString();
+
+            UbicacionAgregar.sector = nombre;
+                
             this.Close();
         }
 
+        public void tablaSector()
+        {
+
+            try
+            {
+                cm = new SqlCommand("Select * from Sector", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+
+        }
+
         private void UbicacionElegir_Load(object sender, EventArgs e)
-        {}
+        {
+            cn.Open();
+            tablaSector();
+        }
 
         public void addFuente(Font f)
         {
