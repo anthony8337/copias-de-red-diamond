@@ -128,6 +128,65 @@ namespace Principal_Internet_elvis.Ubicacion
 
         }
 
+
+
+        public void tablaColonia()
+        {
+
+            try
+            {
+                cm = new SqlCommand("Select * from Colonia", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+
+        }
+
+        public void tablaBarrio()
+        {
+
+            try
+            {
+                cm = new SqlCommand("Select * from Barrio", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+
+        }
+
+        public void tablaSector()
+        {
+
+            try
+            {
+                cm = new SqlCommand("Select * from Sector", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+
+        }
+
         public void addFuente(Font f)
         {
             foreach (Button e in Program.GetAllChildren(this).OfType<Button>())
@@ -155,5 +214,40 @@ namespace Principal_Internet_elvis.Ubicacion
                 e.Font = f;
             }
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            groupBox3.Text = "SE ESTA MOSTRANDO LA TABLA: COLONIA";
+            groupBox4.Visible = true;
+            dgv_tabla.Columns.Clear();
+            tablaColonia();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox3.Text = "SE ESTA MOSTRANDO LA TABLA: BARRIO";
+            groupBox4.Visible = true;
+            dgv_tabla.Columns.Clear();
+            tablaBarrio();
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox3.Text = "SE ESTA MOSTRANDO LA TABLA: SECTOR";
+            groupBox4.Visible = false;
+            dgv_tabla.Columns.Clear();
+            tablaSector();
+        }
+
+        private void UbicacionTipo_Load(object sender, EventArgs e)
+        {
+            groupBox3.Text = "POR FAVOR, SELECCIONA ALGUNA UBICACION";
+        }
+
+
+
+
     }
 }

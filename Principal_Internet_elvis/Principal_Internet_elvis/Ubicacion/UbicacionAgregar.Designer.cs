@@ -38,7 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_sec = new System.Windows.Forms.TextBox();
             this.gb_codigo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
@@ -126,11 +126,12 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "ELIMINAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_sec);
             this.groupBox1.Location = new System.Drawing.Point(363, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(262, 52);
@@ -148,14 +149,14 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox1
+            // txt_sec
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(8, 19);
-            this.textBox1.MaxLength = 255;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
-            this.textBox1.TabIndex = 2;
+            this.txt_sec.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_sec.Location = new System.Drawing.Point(8, 19);
+            this.txt_sec.MaxLength = 255;
+            this.txt_sec.Name = "txt_sec";
+            this.txt_sec.Size = new System.Drawing.Size(152, 20);
+            this.txt_sec.TabIndex = 2;
             // 
             // UbicacionAgregar
             // 
@@ -197,6 +198,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_sec;
     }
 }
