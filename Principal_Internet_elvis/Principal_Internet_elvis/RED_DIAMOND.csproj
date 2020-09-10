@@ -66,6 +66,12 @@
       <DependentUpon>Bus_factura.cs</DependentUpon>
     </Compile>
     <Compile Include="Capsula.cs" />
+    <Compile Include="ClientesCarpeta\Buscar_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesCarpeta\Buscar_cliente.Designer.cs">
+      <DependentUpon>Buscar_cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientesCarpeta\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </Compile>
     <EmbeddedResource Include="Buscar_factura\Bus_factura.resx">
       <DependentUpon>Bus_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesCarpeta\Buscar_cliente.resx">
+      <DependentUpon>Buscar_cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientesCarpeta\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>

@@ -52,6 +52,7 @@
             this.bt_aceptar = new System.Windows.Forms.Button();
             this.btn_borrar = new System.Windows.Forms.Button();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -70,7 +71,7 @@
             this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 50);
+            this.groupBox1.Size = new System.Drawing.Size(150, 50);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CODIGO";
@@ -79,7 +80,7 @@
             // 
             this.txt_codigo.Location = new System.Drawing.Point(6, 19);
             this.txt_codigo.Name = "txt_codigo";
-            this.txt_codigo.Size = new System.Drawing.Size(276, 20);
+            this.txt_codigo.Size = new System.Drawing.Size(138, 20);
             this.txt_codigo.TabIndex = 1;
             // 
             // groupBox2
@@ -301,11 +302,21 @@
             this.dgv_tabla.TabIndex = 15;
             this.dgv_tabla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(168, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 50);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "BUSCAR";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 529);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv_tabla);
             this.Controls.Add(this.btn_borrar);
             this.Controls.Add(this.bt_paquetes);
@@ -374,5 +385,6 @@
         private System.Windows.Forms.Button bt_paquetes;
         private System.Windows.Forms.Button btn_borrar;
         private System.Windows.Forms.DataGridView dgv_tabla;
+        private System.Windows.Forms.Button button1;
     }
 }

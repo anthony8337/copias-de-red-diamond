@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bt_estado = new System.Windows.Forms.Button();
             this.bt_modificar = new System.Windows.Forms.Button();
-            this.bt_buscar = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
             this.bt_salir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -39,32 +37,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.bt_estado);
             this.groupBox1.Controls.Add(this.bt_modificar);
-            this.groupBox1.Controls.Add(this.bt_buscar);
             this.groupBox1.Controls.Add(this.bt_agregar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(398, 173);
+            this.groupBox1.Size = new System.Drawing.Size(398, 102);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Obciones";
-            // 
-            // bt_estado
-            // 
-            this.bt_estado.BackColor = System.Drawing.Color.White;
-            this.bt_estado.ForeColor = System.Drawing.Color.Black;
-            this.bt_estado.Image = global::Principal_Internet_elvis.Properties.Resources.menu;
-            this.bt_estado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_estado.Location = new System.Drawing.Point(198, 93);
-            this.bt_estado.Margin = new System.Windows.Forms.Padding(2);
-            this.bt_estado.Name = "bt_estado";
-            this.bt_estado.Size = new System.Drawing.Size(189, 71);
-            this.bt_estado.TabIndex = 20;
-            this.bt_estado.Text = "ESTADO";
-            this.bt_estado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bt_estado.UseVisualStyleBackColor = false;
-            this.bt_estado.Click += new System.EventHandler(this.bt_estado_Click);
             // 
             // bt_modificar
             // 
@@ -81,22 +61,6 @@
             this.bt_modificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_modificar.UseVisualStyleBackColor = false;
             this.bt_modificar.Click += new System.EventHandler(this.bt_modificar_Click);
-            // 
-            // bt_buscar
-            // 
-            this.bt_buscar.BackColor = System.Drawing.Color.White;
-            this.bt_buscar.ForeColor = System.Drawing.Color.Black;
-            this.bt_buscar.Image = global::Principal_Internet_elvis.Properties.Resources.buscar;
-            this.bt_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_buscar.Location = new System.Drawing.Point(5, 93);
-            this.bt_buscar.Margin = new System.Windows.Forms.Padding(2);
-            this.bt_buscar.Name = "bt_buscar";
-            this.bt_buscar.Size = new System.Drawing.Size(189, 71);
-            this.bt_buscar.TabIndex = 18;
-            this.bt_buscar.Text = "BUSCAR";
-            this.bt_buscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bt_buscar.UseVisualStyleBackColor = false;
-            this.bt_buscar.Click += new System.EventHandler(this.bt_buscar_Click);
             // 
             // bt_agregar
             // 
@@ -120,7 +84,7 @@
             this.bt_salir.ForeColor = System.Drawing.Color.Black;
             this.bt_salir.Image = global::Principal_Internet_elvis.Properties.Resources._8;
             this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_salir.Location = new System.Drawing.Point(12, 190);
+            this.bt_salir.Location = new System.Drawing.Point(11, 119);
             this.bt_salir.Margin = new System.Windows.Forms.Padding(2);
             this.bt_salir.Name = "bt_salir";
             this.bt_salir.Size = new System.Drawing.Size(133, 71);
@@ -134,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 279);
+            this.ClientSize = new System.Drawing.Size(424, 203);
             this.Controls.Add(this.bt_salir);
             this.Controls.Add(this.groupBox1);
             this.Name = "Opciones";
@@ -150,9 +114,7 @@
 
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button bt_buscar;
         private System.Windows.Forms.Button bt_modificar;
-        private System.Windows.Forms.Button bt_estado;
         private System.Windows.Forms.Button bt_salir;
     }
 }

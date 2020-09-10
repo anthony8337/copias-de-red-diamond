@@ -100,3 +100,4 @@ C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\RED_DIAMOND.csproj.CopyComplete
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.exe
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.pdb
+C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.ClientesCarpeta.Buscar_cliente.resources

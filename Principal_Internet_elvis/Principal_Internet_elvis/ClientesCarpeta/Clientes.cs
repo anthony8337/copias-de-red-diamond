@@ -88,9 +88,15 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         }
 
-
-
-
+        public void buscar()
+        {
+            cm = new SqlCommand("Select * from Cliente", cn);
+            SqlDataAdapter adp = new SqlDataAdapter();
+            adp.SelectCommand = cm;
+            DataTable tabla = new DataTable();
+            adp.Fill(tabla);
+            dgv_tabla.DataSource = tabla;
+        }
 
         public void agregar()
         {

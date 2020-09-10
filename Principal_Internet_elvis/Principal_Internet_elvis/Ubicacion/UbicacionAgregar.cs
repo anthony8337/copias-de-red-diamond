@@ -22,26 +22,161 @@ namespace Principal_Internet_elvis.Ubicacion
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
         SqlCommand cm;
 
-        public void idse()
+        public void buscar()
         {
-            
-            if (txt_sec.Text != "")
+            if (Text == "AGREGAR-COLONIA" || Text == "MODIFICAR-COLONIA")
             {
-                cm = new SqlCommand("Select idsector from Sector WHERE sector = @sector", cn);
-                cm.Parameters.AddWithValue("@sector", txt_sec.Text);
-                idsector = int.Parse(cm.ExecuteScalar().ToString());
+                try
+                {
+                    if (txt_nombre.Text != "")
+                    {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from Colonia WHERE colonia like '%" + txt_nombre.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaColonia();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+
+
             }
-            else { }
-            
+            else if (Text == "AGREGAR-BARRIO" || Text == "MODIFICAR-BARRIO")
+            {
+                try
+                {
+
+                    if (txt_nombre.Text != "")
+                    {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from Barrio WHERE barrio like '%" + txt_nombre.Text + "%'", cn);
+                    cm.ExecuteNonQuery();
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaColonia();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+            }
+            else if (Text == "AGREGAR-SECTOR" || Text == "MODIFICAR-SECTOR")
+            {
+                try
+                {
+                    if (txt_nombre.Text != "")
+                    {
+                        cm = new SqlCommand("Select * from Sector WHERE sector like '%" + txt_nombre.Text + "%'", cn);
+                    cm.ExecuteNonQuery();
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaSector();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+
+            }
         }
 
+        public void buscar_por_sector()
+        
+            {
+                if (Text == "AGREGAR-COLONIA" || Text == "MODIFICAR-COLONIA")
+                {
+                    try
+                    {
+                        if (txt_sec.Text != "")
+                        {
+                            dgv_tabla.Columns.Clear();
+                            cm = new SqlCommand("Select * from V_colonia WHERE sector like '%" + txt_sec.Text + "%'", cn);
+                            cm.ExecuteNonQuery();
+                            SqlDataAdapter adp = new SqlDataAdapter();
+                            adp.SelectCommand = cm;
+                            DataTable tabla = new DataTable();
+                            adp.Fill(tabla);
+                            dgv_tabla.DataSource = tabla;
+                        limpiar();
+                    }
+                        else
+                        {
+                            tablaColonia();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                    }
 
-        public void sec()
+
+                }
+                else if (Text == "AGREGAR-BARRIO" || Text == "MODIFICAR-BARRIO")
+                {
+                    try
+                    {
+
+                        if (txt_nombre.Text != "")
+                        {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from V_barrio WHERE sector like '%" + txt_sec.Text + "%'", cn);
+                            cm.ExecuteNonQuery();
+                            SqlDataAdapter adp = new SqlDataAdapter();
+                            adp.SelectCommand = cm;
+                            DataTable tabla = new DataTable();
+                            adp.Fill(tabla);
+                            dgv_tabla.DataSource = tabla;
+                        limpiar();
+                        }
+                        else
+                        {
+                            tablaColonia();
+                        }
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                    }
+                }
+
+
+            }
+
+
+            public void idse()
         {
             
-                cm = new SqlCommand("Select sector from Sector WHERE idsector = @id", cn);
-                cm.Parameters.AddWithValue("@id", idsector);
-                sector = cm.ExecuteScalar().ToString();
+            
+                cm = new SqlCommand("Select idsector from Sector WHERE sector = @sector", cn);
+                cm.Parameters.AddWithValue("@sector", sector);
+                idsector = int.Parse(cm.ExecuteScalar().ToString());
+           
             
         }
 
@@ -123,8 +258,7 @@ namespace Principal_Internet_elvis.Ubicacion
             this.Close();
         }
         
-        public void agregarDatos(int id, string nombre)
-        {}
+
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
@@ -194,11 +328,10 @@ namespace Principal_Internet_elvis.Ubicacion
                 
                 txt_codigo.Text = dgv_tabla.CurrentRow.Cells[0].Value.ToString();
                 txt_nombre.Text = dgv_tabla.CurrentRow.Cells[1].Value.ToString();
-                idsector = int.Parse(dgv_tabla.CurrentRow.Cells[2].Value.ToString());
-                sec();
+                sector = dgv_tabla.CurrentRow.Cells[2].Value.ToString();
+                idse();
                 txt_sec.Text = sector;
                 
-
             }
 
             
@@ -212,7 +345,7 @@ namespace Principal_Internet_elvis.Ubicacion
 
             try
             {
-                cm = new SqlCommand("Select * from Colonia", cn);
+                cm = new SqlCommand("Select * from V_colonia", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();
@@ -231,7 +364,7 @@ namespace Principal_Internet_elvis.Ubicacion
 
             try
             {
-                cm = new SqlCommand("Select * from Barrio", cn);
+                cm = new SqlCommand("Select * from V_barrio", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();
@@ -318,11 +451,12 @@ namespace Principal_Internet_elvis.Ubicacion
         private void button2_Click(object sender, EventArgs e)
         {
             
-            Program.ubicacionElegir = new UbicacionElegir();
-            Program.ubicacionElegir.Show();
-            Program.ubicacionElegir.TopMost = true;
-            Program.ubicacionElegir.Focus();
-            Program.ubicacionElegir.BringToFront();
+                Program.ubicacionElegir = new UbicacionElegir();
+                Program.ubicacionElegir.Show();
+                Program.ubicacionElegir.TopMost = true;
+                Program.ubicacionElegir.Focus();
+                Program.ubicacionElegir.BringToFront();
+            
 
 
         }
@@ -360,6 +494,7 @@ namespace Principal_Internet_elvis.Ubicacion
                 catch (Exception ex)
                 {
                     MessageBox.Show("Este valor esta en uso \nPor favor, verifique si no hay componentes usandolo.");
+                    limpiar();
                 }
 
             }
@@ -378,6 +513,7 @@ namespace Principal_Internet_elvis.Ubicacion
                 catch (Exception ex)
                 {
                     MessageBox.Show("Este valor esta en uso \nPor favor, verifique si no hay componentes usandolo.");
+                    limpiar();
                 }
 
             }
@@ -396,14 +532,10 @@ namespace Principal_Internet_elvis.Ubicacion
                 catch (Exception ex)
                 {
                     MessageBox.Show("Este valor esta en uso \nPor favor, verifique si no hay componentes usandolo.");
+                    limpiar();
                 }
 
             }
-
-
-
-
-
             
         }
 
@@ -417,7 +549,7 @@ namespace Principal_Internet_elvis.Ubicacion
                 comando = "UPDATE Colonia SET colonia = @colonia,idsector = @idsector WHERE idcolonia = @id";
                 cm = new SqlCommand(comando,cn);
                 cm.Parameters.AddWithValue("@colonia",txt_nombre.Text);
-                cm.Parameters.AddWithValue("@id", idsector);
+                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
                 cm.ExecuteNonQuery();
             }
             else if (Text == "MODIFICAR-BARRIO")
@@ -425,7 +557,7 @@ namespace Principal_Internet_elvis.Ubicacion
                 comando = "UPDATE Barrio SET barrio = @barrio,idsector = @idsector WHERE idbarrio = @id";
                 cm = new SqlCommand(comando, cn);
                 cm.Parameters.AddWithValue("@barrio", txt_nombre.Text);
-                cm.Parameters.AddWithValue("@id", idsector);
+                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
                 cm.ExecuteNonQuery();
             }
             else if (Text == "MODIFICAR-SECTOR")
@@ -433,11 +565,22 @@ namespace Principal_Internet_elvis.Ubicacion
                 comando = "UPDATE Sector SET sector = @sector WHERE idsector = @id";
                 cm = new SqlCommand(comando, cn);
                 cm.Parameters.AddWithValue("@sector", txt_nombre.Text);
+                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
                 cm.ExecuteNonQuery();
             }
 
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            buscar();
+            limpiar();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            buscar_por_sector();
+        }
     }
 }
