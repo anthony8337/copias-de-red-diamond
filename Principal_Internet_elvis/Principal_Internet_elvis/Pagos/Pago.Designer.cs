@@ -46,6 +46,7 @@
             this.btnAtrasConcepto = new System.Windows.Forms.Button();
             this.dgv_tabla_p = new System.Windows.Forms.DataGridView();
             this.gb_paquete = new System.Windows.Forms.GroupBox();
+            this.cb_adelantado = new System.Windows.Forms.CheckBox();
             this.dtp_mes_p = new System.Windows.Forms.DateTimePicker();
             this.btnBusCON = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.txt_efectivo = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txt_cambio = new System.Windows.Forms.TextBox();
-            this.cb_adelantado = new System.Windows.Forms.CheckBox();
             this.gb_cliente.SuspendLayout();
             this.gBusCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_c)).BeginInit();
@@ -104,7 +104,7 @@
             this.gb_cliente.Controls.Add(this.label2);
             this.gb_cliente.Controls.Add(this.txt_codigo_c);
             this.gb_cliente.Controls.Add(this.label1);
-            this.gb_cliente.Location = new System.Drawing.Point(201, 12);
+            this.gb_cliente.Location = new System.Drawing.Point(207, 12);
             this.gb_cliente.Name = "gb_cliente";
             this.gb_cliente.Size = new System.Drawing.Size(509, 188);
             this.gb_cliente.TabIndex = 0;
@@ -122,12 +122,11 @@
             this.btnbusCLI.Text = "BUSCAR";
             this.btnbusCLI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnbusCLI.UseVisualStyleBackColor = true;
-            this.btnbusCLI.Click += new System.EventHandler(this.btnbusCLI_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 118);
+            this.label4.Location = new System.Drawing.Point(12, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 7;
@@ -135,24 +134,24 @@
             // 
             // txt_direccion_c
             // 
-            this.txt_direccion_c.Location = new System.Drawing.Point(84, 115);
+            this.txt_direccion_c.Location = new System.Drawing.Point(92, 117);
             this.txt_direccion_c.Name = "txt_direccion_c";
             this.txt_direccion_c.ReadOnly = true;
-            this.txt_direccion_c.Size = new System.Drawing.Size(417, 20);
+            this.txt_direccion_c.Size = new System.Drawing.Size(386, 20);
             this.txt_direccion_c.TabIndex = 6;
             // 
             // txt_rtn_c
             // 
-            this.txt_rtn_c.Location = new System.Drawing.Point(69, 89);
+            this.txt_rtn_c.Location = new System.Drawing.Point(92, 93);
             this.txt_rtn_c.Name = "txt_rtn_c";
             this.txt_rtn_c.ReadOnly = true;
-            this.txt_rtn_c.Size = new System.Drawing.Size(168, 20);
+            this.txt_rtn_c.Size = new System.Drawing.Size(145, 20);
             this.txt_rtn_c.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 92);
+            this.label3.Location = new System.Drawing.Point(48, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 4;
@@ -160,16 +159,16 @@
             // 
             // txt_nombre_c
             // 
-            this.txt_nombre_c.Location = new System.Drawing.Point(69, 63);
+            this.txt_nombre_c.Location = new System.Drawing.Point(92, 65);
             this.txt_nombre_c.Name = "txt_nombre_c";
             this.txt_nombre_c.ReadOnly = true;
-            this.txt_nombre_c.Size = new System.Drawing.Size(432, 20);
+            this.txt_nombre_c.Size = new System.Drawing.Size(386, 20);
             this.txt_nombre_c.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 66);
+            this.label2.Location = new System.Drawing.Point(24, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 2;
@@ -177,16 +176,16 @@
             // 
             // txt_codigo_c
             // 
-            this.txt_codigo_c.Location = new System.Drawing.Point(69, 37);
+            this.txt_codigo_c.Location = new System.Drawing.Point(92, 39);
             this.txt_codigo_c.Name = "txt_codigo_c";
             this.txt_codigo_c.ReadOnly = true;
-            this.txt_codigo_c.Size = new System.Drawing.Size(100, 20);
+            this.txt_codigo_c.Size = new System.Drawing.Size(69, 20);
             this.txt_codigo_c.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 40);
+            this.label1.Location = new System.Drawing.Point(29, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
@@ -212,7 +211,6 @@
             this.txt_buscar_c.Name = "txt_buscar_c";
             this.txt_buscar_c.Size = new System.Drawing.Size(411, 20);
             this.txt_buscar_c.TabIndex = 4;
-            this.txt_buscar_c.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_buscar_c_KeyDown);
             // 
             // btnAtrasCliente
             // 
@@ -222,7 +220,6 @@
             this.btnAtrasCliente.TabIndex = 1;
             this.btnAtrasCliente.Text = "ATRAS";
             this.btnAtrasCliente.UseVisualStyleBackColor = true;
-            this.btnAtrasCliente.Click += new System.EventHandler(this.btnAtrasCliente_Click);
             // 
             // dgv_tabla_c
             // 
@@ -236,16 +233,15 @@
             this.dgv_tabla_c.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla_c.Size = new System.Drawing.Size(495, 137);
             this.dgv_tabla_c.TabIndex = 0;
-            this.dgv_tabla_c.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_c_CellDoubleClick);
             // 
             // gBusConcep
             // 
             this.gBusConcep.BackColor = System.Drawing.Color.White;
             this.gBusConcep.Controls.Add(this.btnAtrasConcepto);
             this.gBusConcep.Controls.Add(this.dgv_tabla_p);
-            this.gBusConcep.Location = new System.Drawing.Point(207, 206);
+            this.gBusConcep.Location = new System.Drawing.Point(207, 212);
             this.gBusConcep.Name = "gBusConcep";
-            this.gBusConcep.Size = new System.Drawing.Size(509, 185);
+            this.gBusConcep.Size = new System.Drawing.Size(509, 179);
             this.gBusConcep.TabIndex = 6;
             this.gBusConcep.TabStop = false;
             this.gBusConcep.Text = "BUSCAR PAQUETE";
@@ -258,7 +254,6 @@
             this.btnAtrasConcepto.TabIndex = 1;
             this.btnAtrasConcepto.Text = "ATRAS";
             this.btnAtrasConcepto.UseVisualStyleBackColor = true;
-            this.btnAtrasConcepto.Click += new System.EventHandler(this.btnAtrasConcepto_Click);
             // 
             // dgv_tabla_p
             // 
@@ -272,7 +267,6 @@
             this.dgv_tabla_p.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla_p.Size = new System.Drawing.Size(489, 138);
             this.dgv_tabla_p.TabIndex = 0;
-            this.dgv_tabla_p.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_p_CellDoubleClick);
             // 
             // gb_paquete
             // 
@@ -287,12 +281,22 @@
             this.gb_paquete.Controls.Add(this.label7);
             this.gb_paquete.Controls.Add(this.txt_codigo_p);
             this.gb_paquete.Controls.Add(this.label8);
-            this.gb_paquete.Location = new System.Drawing.Point(201, 206);
+            this.gb_paquete.Location = new System.Drawing.Point(207, 212);
             this.gb_paquete.Name = "gb_paquete";
             this.gb_paquete.Size = new System.Drawing.Size(509, 179);
             this.gb_paquete.TabIndex = 5;
             this.gb_paquete.TabStop = false;
             this.gb_paquete.Text = "DATOS ";
+            // 
+            // cb_adelantado
+            // 
+            this.cb_adelantado.AutoSize = true;
+            this.cb_adelantado.Location = new System.Drawing.Point(15, 143);
+            this.cb_adelantado.Name = "cb_adelantado";
+            this.cb_adelantado.Size = new System.Drawing.Size(125, 17);
+            this.cb_adelantado.TabIndex = 9;
+            this.cb_adelantado.Text = "MES ADELANTADO";
+            this.cb_adelantado.UseVisualStyleBackColor = true;
             // 
             // dtp_mes_p
             // 
@@ -305,7 +309,6 @@
             this.dtp_mes_p.ShowUpDown = true;
             this.dtp_mes_p.Size = new System.Drawing.Size(126, 20);
             this.dtp_mes_p.TabIndex = 7;
-            this.dtp_mes_p.ValueChanged += new System.EventHandler(this.dtp_mes_p_ValueChanged);
             // 
             // btnBusCON
             // 
@@ -317,8 +320,6 @@
             this.btnBusCON.TabIndex = 8;
             this.btnBusCON.Text = "BUSCAR";
             this.btnBusCON.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBusCON.UseVisualStyleBackColor = true;
-            this.btnBusCON.Click += new System.EventHandler(this.btnBusCON_Click);
             // 
             // label5
             // 
@@ -382,7 +383,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dtp_fechaemision);
-            this.groupBox6.Location = new System.Drawing.Point(717, 66);
+            this.groupBox6.Location = new System.Drawing.Point(722, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(213, 65);
             this.groupBox6.TabIndex = 8;
@@ -418,7 +419,6 @@
             this.dgv_detalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_detalles.Size = new System.Drawing.Size(910, 89);
             this.dgv_detalles.TabIndex = 0;
-            this.dgv_detalles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellClick);
             // 
             // txt_totalpagar
             // 
@@ -450,7 +450,6 @@
             this.btnSalir.Text = "SALIR";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnImprimir
             // 
@@ -463,7 +462,6 @@
             this.btnImprimir.Text = "IMPRIMIR";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnGuardar
             // 
@@ -476,7 +474,6 @@
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // img_logo
             // 
@@ -492,46 +489,43 @@
             // 
             this.bt_agregar.Image = global::Principal_Internet_elvis.Properties.Resources.rounded_add_button_icon_icons_com_72592;
             this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_agregar.Location = new System.Drawing.Point(6, 14);
+            this.bt_agregar.Location = new System.Drawing.Point(7, 19);
             this.bt_agregar.Name = "bt_agregar";
-            this.bt_agregar.Size = new System.Drawing.Size(200, 41);
+            this.bt_agregar.Size = new System.Drawing.Size(200, 46);
             this.bt_agregar.TabIndex = 11;
             this.bt_agregar.Text = "AGREGAR";
             this.bt_agregar.UseVisualStyleBackColor = true;
-            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
             // 
             // bt_borrar
             // 
             this.bt_borrar.Image = global::Principal_Internet_elvis.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
             this.bt_borrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_borrar.Location = new System.Drawing.Point(6, 59);
+            this.bt_borrar.Location = new System.Drawing.Point(6, 71);
             this.bt_borrar.Name = "bt_borrar";
-            this.bt_borrar.Size = new System.Drawing.Size(200, 41);
+            this.bt_borrar.Size = new System.Drawing.Size(200, 46);
             this.bt_borrar.TabIndex = 10;
             this.bt_borrar.Text = "BORRAR";
             this.bt_borrar.UseVisualStyleBackColor = true;
-            this.bt_borrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // bt_cancelar
             // 
             this.bt_cancelar.Image = global::Principal_Internet_elvis.Properties.Resources.cancel_86054;
             this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_cancelar.Location = new System.Drawing.Point(6, 106);
+            this.bt_cancelar.Location = new System.Drawing.Point(6, 123);
             this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(200, 39);
+            this.bt_cancelar.Size = new System.Drawing.Size(200, 46);
             this.bt_cancelar.TabIndex = 9;
             this.bt_cancelar.Text = "CANCELAR";
             this.bt_cancelar.UseVisualStyleBackColor = true;
-            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
             // 
             // gb_acciones
             // 
             this.gb_acciones.Controls.Add(this.bt_agregar);
             this.gb_acciones.Controls.Add(this.bt_borrar);
             this.gb_acciones.Controls.Add(this.bt_cancelar);
-            this.gb_acciones.Location = new System.Drawing.Point(717, 137);
+            this.gb_acciones.Location = new System.Drawing.Point(722, 84);
             this.gb_acciones.Name = "gb_acciones";
-            this.gb_acciones.Size = new System.Drawing.Size(213, 152);
+            this.gb_acciones.Size = new System.Drawing.Size(213, 182);
             this.gb_acciones.TabIndex = 16;
             this.gb_acciones.TabStop = false;
             this.gb_acciones.Text = "ACCIONES";
@@ -547,16 +541,15 @@
             "DEPOSITO BANCARIO"});
             this.cb_tipopago.Location = new System.Drawing.Point(6, 19);
             this.cb_tipopago.Name = "cb_tipopago";
-            this.cb_tipopago.Size = new System.Drawing.Size(194, 21);
+            this.cb_tipopago.Size = new System.Drawing.Size(199, 21);
             this.cb_tipopago.TabIndex = 17;
-            this.cb_tipopago.SelectedIndexChanged += new System.EventHandler(this.cb_tipopago_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cb_tipopago);
-            this.groupBox1.Location = new System.Drawing.Point(723, 295);
+            this.groupBox1.Location = new System.Drawing.Point(723, 272);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 48);
+            this.groupBox1.Size = new System.Drawing.Size(212, 48);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TIPO DE PAGO";
@@ -564,7 +557,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_efectivo);
-            this.groupBox2.Location = new System.Drawing.Point(723, 349);
+            this.groupBox2.Location = new System.Drawing.Point(723, 326);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(97, 48);
             this.groupBox2.TabIndex = 19;
@@ -576,15 +569,13 @@
             this.txt_efectivo.Enabled = false;
             this.txt_efectivo.Location = new System.Drawing.Point(6, 16);
             this.txt_efectivo.Name = "txt_efectivo";
-            this.txt_efectivo.Size = new System.Drawing.Size(88, 20);
+            this.txt_efectivo.Size = new System.Drawing.Size(85, 20);
             this.txt_efectivo.TabIndex = 0;
-            this.txt_efectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_efectivo_KeyPress);
-            this.txt_efectivo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_efectivo_KeyUp);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txt_cambio);
-            this.groupBox3.Location = new System.Drawing.Point(826, 349);
+            this.groupBox3.Location = new System.Drawing.Point(826, 326);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(104, 48);
             this.groupBox3.TabIndex = 20;
@@ -593,22 +584,11 @@
             // 
             // txt_cambio
             // 
-            this.txt_cambio.Location = new System.Drawing.Point(0, 16);
+            this.txt_cambio.Location = new System.Drawing.Point(6, 16);
             this.txt_cambio.Name = "txt_cambio";
             this.txt_cambio.ReadOnly = true;
-            this.txt_cambio.Size = new System.Drawing.Size(102, 20);
+            this.txt_cambio.Size = new System.Drawing.Size(92, 20);
             this.txt_cambio.TabIndex = 0;
-            // 
-            // cb_adelantado
-            // 
-            this.cb_adelantado.AutoSize = true;
-            this.cb_adelantado.Location = new System.Drawing.Point(15, 143);
-            this.cb_adelantado.Name = "cb_adelantado";
-            this.cb_adelantado.Size = new System.Drawing.Size(125, 17);
-            this.cb_adelantado.TabIndex = 9;
-            this.cb_adelantado.Text = "MES ADELANTADO";
-            this.cb_adelantado.UseVisualStyleBackColor = true;
-            this.cb_adelantado.CheckedChanged += new System.EventHandler(this.cb_adelantado_CheckedChanged);
             // 
             // Pago
             // 
@@ -617,12 +597,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(947, 580);
             this.ControlBox = false;
+            this.Controls.Add(this.gb_cliente);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_acciones);
-            this.Controls.Add(this.gb_paquete);
-            this.Controls.Add(this.gb_cliente);
             this.Controls.Add(this.txt_totalpagar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label9);
@@ -630,15 +609,15 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.img_logo);
-            this.Controls.Add(this.gBusConcep);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.gBusCliente);
+            this.Controls.Add(this.gb_paquete);
+            this.Controls.Add(this.gBusConcep);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Pago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PAGO";
-            this.Load += new System.EventHandler(this.Pago_Load);
             this.gb_cliente.ResumeLayout(false);
             this.gb_cliente.PerformLayout();
             this.gBusCliente.ResumeLayout(false);
