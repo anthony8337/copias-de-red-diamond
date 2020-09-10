@@ -20,7 +20,48 @@ namespace Principal_Internet_elvis.ClientesCarpeta
     {
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=Proyecto;Integrated Security=True");
         SqlCommand cm;
-        
+
+        public static string lugar;
+        public static int idsector;
+        public static string tipo;
+
+        public void yose()
+        {
+            cm = new SqlCommand("Select tipolugar from Cliente WHERE lugar = @lugar", cn);
+            cm.Parameters.AddWithValue("@lugar",txt_lugar.Text);
+            tipo = cm.ExecuteScalar().ToString();
+
+            if (tipo == "Colonia")
+            {
+                try
+                {
+                    cm = new SqlCommand("Select idsector from Colonia WHERE colonia = @lugar", cn);
+                    cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
+                    idsector = int.Parse(cm.ExecuteScalar().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se encontro fallos en: "+ex.ToString());
+                }
+                
+            }
+            else if(tipo == "Barrio")
+            {
+                try
+                {
+                    cm = new SqlCommand("Select idsector from Barrio WHERE barrio = @lugar", cn);
+                cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
+                idsector = int.Parse(cm.ExecuteScalar().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se encontro fallos en: " + ex.ToString());
+                }
+
+            }
+
+        }
+
         public Clientes()
         {
             InitializeComponent();
@@ -51,22 +92,18 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             {
                 MessageBox.Show("Fallo en la conexion: ", ex.ToString());
             }
-
-            
         }
-
 
         public void tabla()
         {
-
             try
             {
-                cm = new SqlCommand("Select * from Cliente", cn);
-                SqlDataAdapter adp = new SqlDataAdapter();
-                adp.SelectCommand = cm;
-                DataTable tabla = new DataTable();
-                adp.Fill(tabla);
-                dgv_tabla.DataSource = tabla;
+                    cm = new SqlCommand("Select* from Cliente", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    dgv_tabla.DataSource = tabla;
             }
             catch (Exception e)
             {
@@ -88,20 +125,39 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         }
 
+
+
+
+
+
         public void buscar()
         {
-            cm = new SqlCommand("Select * from Cliente", cn);
+            cm = new SqlCommand("Select * from Cliente WHERE nombre like '%"+txt_nombre.Text+"%'", cn);
             SqlDataAdapter adp = new SqlDataAdapter();
             adp.SelectCommand = cm;
             DataTable tabla = new DataTable();
             adp.Fill(tabla);
             dgv_tabla.DataSource = tabla;
-        }
+
+
+            for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+            {
+                if (dgv_tabla.Rows[i].Cells["estado"].Value.ToString().Equals("Activo"))
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                }
+                else
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+                dgv_tabla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+            }
+            }
 
         public void agregar()
         {
-            string insertar = "insert into Cliente (nombre, rtn, telefono, genero, correo, fecha, direccion, lugar, estado) " +
-            "VALUES (@nombre, @rtn, @telefono, @genero, @correo, @fecha, @direccion, @lugar, @estado)";
+            string insertar = "INSERT INTO Cliente (nombre,rtn,telefono,genero,correo,fecha,direccion,lugar,idsector,tipolugar,estado) " +
+                "VALUES (@nombre,@rtn,@telefono,@genero,@correo,@fecha,@direccion,@lugar,@idsector,@tipolugar,@estado)";
             
             try
             {
@@ -132,6 +188,8 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                     cm.Parameters.AddWithValue("@fecha", dtp_fecha.Value.ToShortDateString());
                     cm.Parameters.AddWithValue("@direccion", txt_direccion.Text);
                     cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
+                    cm.Parameters.AddWithValue("@idsector", idsector);
+                    cm.Parameters.AddWithValue("@tipolugar", tipo);
                     cm.Parameters.AddWithValue("@estado", "PENDIENTE INSTALACION");
                     cm.ExecuteNonQuery();
                     tabla();
@@ -151,7 +209,9 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             try
             {
 
-                string actualizar = "UPDATE Cliente SET nombre = @nombre, rtn = @rtn, telefono = @telefono, genero = @genero, correo = @correo, fecha = @fecha, direccion = @direccion, lugar = @lugar, estado = @estado" +
+                string actualizar = "UPDATE Cliente SET nombre = @nombre, rtn = @rtn, telefono = @telefono, " +
+                    "genero = @genero, correo = @correo, fecha = @fecha, direccion = @direccion, lugar = @lugar, " +
+                    "idsector = @idsector, tipolugar = @tipolugar ,estado = @estado" +
                     " WHERE idcliente = @id";
 
                 cm = new SqlCommand(actualizar, cn);
@@ -170,6 +230,8 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                 cm.Parameters.AddWithValue("@fecha", dtp_fecha.Value.ToShortDateString());
                 cm.Parameters.AddWithValue("@direccion", txt_direccion.Text);
                 cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
+                cm.Parameters.AddWithValue("@idsector", idsector);
+                cm.Parameters.AddWithValue("@tipolugar", tipo);
                 cm.Parameters.AddWithValue("@estado", "PENDIENTE INSTALACION");
                 cm.Parameters.AddWithValue("@id", txt_codigo.Text);
                 cm.ExecuteNonQuery();
@@ -195,8 +257,6 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             txt_direccion.Text = "";
             txt_lugar.Text ="";
             dtp_fecha.Value = DateTime.Now;
-
-
         }
     
 
@@ -242,7 +302,12 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         
         private void bt_lugar_Click(object sender, EventArgs e)
         {
-            
+            Program.seleccionar = new Seleccionar();
+            Program.seleccionar.TopMost = true;
+            Program.seleccionar.Focus();
+            Program.seleccionar.BringToFront();
+            Program.seleccionar.Show();
+
         }
         
         private void seleccionar()
@@ -331,6 +396,18 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                 rb_femenino.Checked = false;
                 rb_masculino.Checked = true;
             }
+            yose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            buscar();
+        }
+
+        private void Clientes_Activated(object sender, EventArgs e)
+        {
+            txt_lugar.Text = lugar;
+            
         }
     }
-}
+    }

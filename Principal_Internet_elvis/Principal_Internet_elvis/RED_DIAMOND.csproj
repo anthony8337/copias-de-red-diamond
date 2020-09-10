@@ -66,12 +66,6 @@
       <DependentUpon>Bus_factura.cs</DependentUpon>
     </Compile>
     <Compile Include="Capsula.cs" />
-    <Compile Include="ClientesCarpeta\Buscar_cliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientesCarpeta\Buscar_cliente.Designer.cs">
-      <DependentUpon>Buscar_cliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClientesCarpeta\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +77,12 @@
     </Compile>
     <Compile Include="ClientesCarpeta\ClientesPaquetes.Designer.cs">
       <DependentUpon>ClientesPaquetes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesCarpeta\Seleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesCarpeta\Seleccionar.Designer.cs">
+      <DependentUpon>Seleccionar.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuraciones\ConfiguracionLogo.cs">
       <SubType>Form</SubType>
@@ -227,14 +227,14 @@
     <EmbeddedResource Include="Buscar_factura\Bus_factura.resx">
       <DependentUpon>Bus_factura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientesCarpeta\Buscar_cliente.resx">
-      <DependentUpon>Buscar_cliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ClientesCarpeta\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientesCarpeta\ClientesPaquetes.resx">
       <DependentUpon>ClientesPaquetes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesCarpeta\Seleccionar.resx">
+      <DependentUpon>Seleccionar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuraciones\ConfiguracionLogo.resx">
       <DependentUpon>ConfiguracionLogo.cs</DependentUpon>

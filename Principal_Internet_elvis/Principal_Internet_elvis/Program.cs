@@ -24,11 +24,9 @@ namespace Principal_Internet_elvis
         public static Principal principal;
         public static Inicio inicio;
         public static Usuarios usuarios;
-        public static Opciones OpCliente; 
-
+        public static Opciones OpCliente;
         public static Configuracion configuracion;
         public static ConfiguracionLogo configuracionLogo;
-
         public static UbicacionTipo ubicacionTipo;
         public static UbicacionAgregar ubicacionAgregar;
         public static UbicacionElegir ubicacionElegir;
@@ -44,6 +42,8 @@ namespace Principal_Internet_elvis
         public static ClientesPaquetes clientesPaquetes;
         public static ReportesTipo reportesTipo;
         public static Servicios servicios;
+        public static Seleccionar seleccionar;
+
         
 
         [STAThread]
