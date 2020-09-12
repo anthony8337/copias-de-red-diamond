@@ -91,6 +91,12 @@
       <DependentUpon>ConfiguracionLogo.cs</DependentUpon>
     </Compile>
     <Compile Include="Conv.cs" />
+    <Compile Include="Recerva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recerva.Designer.cs">
+      <DependentUpon>Recerva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagos\Estado_cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuraciones\ConfiguracionLogo.resx">
       <DependentUpon>ConfiguracionLogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recerva.resx">
+      <DependentUpon>Recerva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagos\Estado_cliente.resx">
       <DependentUpon>Estado_cliente.cs</DependentUpon>
@@ -392,7 +401,9 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Copia de seguridad\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo del proyecto.png" />
   </ItemGroup>

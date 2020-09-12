@@ -21,6 +21,10 @@ namespace Principal_Internet_elvis
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
+        /// 
+
+            
+        
         public static Principal principal;
         public static Inicio inicio;
         public static Usuarios usuarios;

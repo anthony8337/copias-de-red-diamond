@@ -39,6 +39,7 @@
             this.bt_provedores = new System.Windows.Forms.Button();
             this.bt_usuarios = new System.Windows.Forms.Button();
             this.bt_empresa = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.gb_servidor.SuspendLayout();
             this.gb_opciones.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             // 
             this.gb_servidor.Controls.Add(this.txt_server);
             this.gb_servidor.Controls.Add(this.btnAceptar);
-            this.gb_servidor.Location = new System.Drawing.Point(12, 414);
+            this.gb_servidor.Location = new System.Drawing.Point(12, 465);
             this.gb_servidor.Name = "gb_servidor";
             this.gb_servidor.Size = new System.Drawing.Size(364, 60);
             this.gb_servidor.TabIndex = 5;
@@ -102,6 +103,7 @@
             // 
             // gb_opciones
             // 
+            this.gb_opciones.Controls.Add(this.button1);
             this.gb_opciones.Controls.Add(this.bt_socios);
             this.gb_opciones.Controls.Add(this.bt_provedores);
             this.gb_opciones.Controls.Add(this.bt_usuarios);
@@ -109,7 +111,7 @@
             this.gb_opciones.Controls.Add(this.btnSelFue);
             this.gb_opciones.Location = new System.Drawing.Point(12, 12);
             this.gb_opciones.Name = "gb_opciones";
-            this.gb_opciones.Size = new System.Drawing.Size(247, 385);
+            this.gb_opciones.Size = new System.Drawing.Size(247, 447);
             this.gb_opciones.TabIndex = 6;
             this.gb_opciones.TabStop = false;
             this.gb_opciones.Text = "OPCIONES";
@@ -154,11 +156,20 @@
             this.bt_empresa.UseVisualStyleBackColor = true;
             this.bt_empresa.Click += new System.EventHandler(this.bt_empresa_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 385);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(235, 56);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "SOCIOS";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 486);
+            this.ClientSize = new System.Drawing.Size(465, 587);
             this.ControlBox = false;
             this.Controls.Add(this.gb_opciones);
             this.Controls.Add(this.gb_servidor);
@@ -187,5 +198,6 @@
         private System.Windows.Forms.Button bt_provedores;
         private System.Windows.Forms.Button bt_usuarios;
         private System.Windows.Forms.Button bt_socios;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -124,6 +124,8 @@ namespace Principal_Internet_elvis
 
         private void bt_usuarios_Click(object sender, EventArgs e)
         {
+            
+            recer
             Program.usuarios = new Usuarios();
             Program.usuarios.Text = "USUARIOS";
             Program.usuarios.Show();
