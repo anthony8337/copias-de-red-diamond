@@ -125,11 +125,20 @@ namespace Principal_Internet_elvis
         private void bt_usuarios_Click(object sender, EventArgs e)
         {
             
-            recer
+            
             Program.usuarios = new Usuarios();
             Program.usuarios.Text = "USUARIOS";
             Program.usuarios.Show();
             Program.usuarios.Focus();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Program.backups = new Copia_de_seguridad.Backups();
+            Program.backups.Text = "BASE DE DATOS";
+            Program.backups.Show();
+            Program.backups.Focus();
             this.Close();
         }
     }

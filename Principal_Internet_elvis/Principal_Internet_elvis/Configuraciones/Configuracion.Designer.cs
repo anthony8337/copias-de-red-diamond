@@ -35,11 +35,12 @@
             this.btnSelFue = new System.Windows.Forms.Button();
             this.gb_servidor = new System.Windows.Forms.GroupBox();
             this.gb_opciones = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.bt_socios = new System.Windows.Forms.Button();
             this.bt_provedores = new System.Windows.Forms.Button();
             this.bt_usuarios = new System.Windows.Forms.Button();
             this.bt_empresa = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.gb_servidor.SuspendLayout();
             this.gb_opciones.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             // 
             // btnSelFue
             // 
-            this.btnSelFue.Location = new System.Drawing.Point(6, 94);
+            this.btnSelFue.Location = new System.Drawing.Point(6, 86);
             this.btnSelFue.Name = "btnSelFue";
             this.btnSelFue.Size = new System.Drawing.Size(235, 56);
             this.btnSelFue.TabIndex = 4;
@@ -94,7 +95,7 @@
             // 
             this.gb_servidor.Controls.Add(this.txt_server);
             this.gb_servidor.Controls.Add(this.btnAceptar);
-            this.gb_servidor.Location = new System.Drawing.Point(12, 465);
+            this.gb_servidor.Location = new System.Drawing.Point(12, 515);
             this.gb_servidor.Name = "gb_servidor";
             this.gb_servidor.Size = new System.Drawing.Size(364, 60);
             this.gb_servidor.TabIndex = 5;
@@ -103,6 +104,7 @@
             // 
             // gb_opciones
             // 
+            this.gb_opciones.Controls.Add(this.button2);
             this.gb_opciones.Controls.Add(this.button1);
             this.gb_opciones.Controls.Add(this.bt_socios);
             this.gb_opciones.Controls.Add(this.bt_provedores);
@@ -111,14 +113,23 @@
             this.gb_opciones.Controls.Add(this.btnSelFue);
             this.gb_opciones.Location = new System.Drawing.Point(12, 12);
             this.gb_opciones.Name = "gb_opciones";
-            this.gb_opciones.Size = new System.Drawing.Size(247, 447);
+            this.gb_opciones.Size = new System.Drawing.Size(247, 497);
             this.gb_opciones.TabIndex = 6;
             this.gb_opciones.TabStop = false;
             this.gb_opciones.Text = "OPCIONES";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(235, 56);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "SOCIOS";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // bt_socios
             // 
-            this.bt_socios.Location = new System.Drawing.Point(6, 306);
+            this.bt_socios.Location = new System.Drawing.Point(6, 272);
             this.bt_socios.Name = "bt_socios";
             this.bt_socios.Size = new System.Drawing.Size(235, 56);
             this.bt_socios.TabIndex = 9;
@@ -128,7 +139,7 @@
             // 
             // bt_provedores
             // 
-            this.bt_provedores.Location = new System.Drawing.Point(6, 235);
+            this.bt_provedores.Location = new System.Drawing.Point(6, 210);
             this.bt_provedores.Name = "bt_provedores";
             this.bt_provedores.Size = new System.Drawing.Size(235, 56);
             this.bt_provedores.TabIndex = 8;
@@ -138,7 +149,7 @@
             // 
             // bt_usuarios
             // 
-            this.bt_usuarios.Location = new System.Drawing.Point(6, 164);
+            this.bt_usuarios.Location = new System.Drawing.Point(6, 148);
             this.bt_usuarios.Name = "bt_usuarios";
             this.bt_usuarios.Size = new System.Drawing.Size(235, 56);
             this.bt_usuarios.TabIndex = 7;
@@ -156,14 +167,15 @@
             this.bt_empresa.UseVisualStyleBackColor = true;
             this.bt_empresa.Click += new System.EventHandler(this.bt_empresa_Click);
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(0, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 56);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "SOCIOS";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(6, 396);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(235, 56);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "BASE DE DATOS";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Configuracion
             // 
@@ -199,5 +211,6 @@
         private System.Windows.Forms.Button bt_usuarios;
         private System.Windows.Forms.Button bt_socios;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

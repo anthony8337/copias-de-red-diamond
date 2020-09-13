@@ -5,6 +5,7 @@ using Principal_Internet_elvis.Pagos;
 using Principal_Internet_elvis.Paquetes;
 using Principal_Internet_elvis.Reportes;
 using Principal_Internet_elvis.Ubicacion;
+using Principal_Internet_elvis.Copia_de_seguridad;
 using Proyecto_dawelin;
 using Proyecto_Internet;
 using System;
@@ -23,8 +24,8 @@ namespace Principal_Internet_elvis
         /// </summary>
         /// 
 
-            
-        
+
+        public static Backups backups;
         public static Principal principal;
         public static Inicio inicio;
         public static Usuarios usuarios;
