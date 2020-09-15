@@ -95,38 +95,7 @@ namespace Principal_Internet_elvis.Ubicacion
             this.Close();
         }
         
-        public void tabla()
-        {
-
-            try
-            {
-                cm = new SqlCommand("Select * from Cliente", cn);
-                SqlDataAdapter adp = new SqlDataAdapter();
-                adp.SelectCommand = cm;
-                DataTable tabla = new DataTable();
-                adp.Fill(tabla);
-                dgv_tabla.DataSource = tabla;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
-            }
-
-            for (int i = 0; i < dgv_tabla.Rows.Count; i++)
-            {
-                if (dgv_tabla.Rows[i].Cells["estado"].Value.ToString().Equals("Activo"))
-                {
-                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
-                }
-                else
-                {
-                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                }
-                dgv_tabla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-            }
-
-
-        }
+        
 
 
 
@@ -135,7 +104,7 @@ namespace Principal_Internet_elvis.Ubicacion
 
             try
             {
-                cm = new SqlCommand("Select * from Colonia", cn);
+                cm = new SqlCommand("Select * from V_colonia", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();
@@ -154,7 +123,7 @@ namespace Principal_Internet_elvis.Ubicacion
 
             try
             {
-                cm = new SqlCommand("Select * from Barrio", cn);
+                cm = new SqlCommand("Select * from V_barrio", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();
@@ -243,11 +212,183 @@ namespace Principal_Internet_elvis.Ubicacion
 
         private void UbicacionTipo_Load(object sender, EventArgs e)
         {
+            cn.Open();
+            tablaColonia();
             groupBox3.Text = "POR FAVOR, SELECCIONA ALGUNA UBICACION";
+
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            buscar();
+            buscarsec();
+            txt_buscar.Text = "";
+        }
+        public void buscar()
+        {
+            if (ch_colonia.Checked && ch_nombreb.Checked)
+            {
+                try
+                {
+                    if (txt_buscar.Text != "")
+                    {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from V_colonia WHERE colonia like '%" + txt_buscar.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaColonia();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
 
 
+            }
+            else if (ch_barrio.Checked && ch_nombreb.Checked)
+            {
+                try
+                {
+
+                    if (txt_buscar.Text != "")
+                    {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from V_barrio WHERE barrio like '%" + txt_buscar.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaBarrio();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+            }
+            else if (ch_sector.Checked)
+            {
+                try
+                {
+                    if (txt_buscar.Text != "")
+                    {
+                        cm = new SqlCommand("Select * from Sector WHERE sector like '%" + txt_buscar.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaSector();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+
+            }
+        }
+
+        public void buscarsec()
+        {
+            if (ch_colonia.Checked && ch_sectorb.Checked)
+            {
+                try
+                {
+                    if (txt_buscar.Text != "")
+                    {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from V_colonia WHERE sector like '%" + txt_buscar.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaColonia();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+
+
+            }
+            else if (ch_barrio.Checked && ch_sectorb.Checked)
+            {
+                try
+                {
+
+                    if (txt_buscar.Text != "")
+                    {
+                        dgv_tabla.Columns.Clear();
+                        cm = new SqlCommand("Select * from V_barrio WHERE sector like '%" + txt_buscar.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaBarrio();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+            }
+            else if (ch_sector.Checked)
+            {
+                try
+                {
+                    if (txt_buscar.Text != "")
+                    {
+                        cm = new SqlCommand("Select * from Sector WHERE sector like '%" + txt_buscar.Text + "%'", cn);
+                        cm.ExecuteNonQuery();
+                        SqlDataAdapter adp = new SqlDataAdapter();
+                        adp.SelectCommand = cm;
+                        DataTable tabla = new DataTable();
+                        adp.Fill(tabla);
+                        dgv_tabla.DataSource = tabla;
+                    }
+                    else
+                    {
+                        tablaSector();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+
+            }
+        }
 
     }
 }

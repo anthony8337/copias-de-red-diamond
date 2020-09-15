@@ -31,7 +31,7 @@ namespace Principal_Internet_elvis.Ubicacion
                     if (txt_nombre.Text != "")
                     {
                         dgv_tabla.Columns.Clear();
-                        cm = new SqlCommand("Select * from Colonia WHERE colonia like '%" + txt_nombre.Text + "%'", cn);
+                        cm = new SqlCommand("Select * from V_colonia WHERE colonia like '%" + txt_nombre.Text + "%'", cn);
                         cm.ExecuteNonQuery();
                         SqlDataAdapter adp = new SqlDataAdapter();
                         adp.SelectCommand = cm;
@@ -59,7 +59,7 @@ namespace Principal_Internet_elvis.Ubicacion
                     if (txt_nombre.Text != "")
                     {
                         dgv_tabla.Columns.Clear();
-                        cm = new SqlCommand("Select * from Barrio WHERE barrio like '%" + txt_nombre.Text + "%'", cn);
+                        cm = new SqlCommand("Select * from V_barrio WHERE barrio like '%" + txt_nombre.Text + "%'", cn);
                     cm.ExecuteNonQuery();
                     SqlDataAdapter adp = new SqlDataAdapter();
                     adp.SelectCommand = cm;
@@ -197,7 +197,7 @@ namespace Principal_Internet_elvis.Ubicacion
 
         public void agregar()
         {
-            idse();
+            
 
             string agregar;
 
@@ -206,6 +206,7 @@ namespace Principal_Internet_elvis.Ubicacion
                 agregar = "INSERT INTO Colonia (colonia,idsector,estado)VALUES(@colonia, @idsector, @estado)";
                 try
                 {
+                    idse();
                     cm = new SqlCommand(agregar, cn);
                     cm.Parameters.AddWithValue("@colonia",txt_nombre.Text);
                     cm.Parameters.AddWithValue("@idsector", idsector);
@@ -223,6 +224,7 @@ namespace Principal_Internet_elvis.Ubicacion
                 agregar = "INSERT INTO Barrio (barrio,idsector,estado)VALUES(@barrio, @idsector, @estado)";
                 try
                 {
+                    idse();
                     cm = new SqlCommand(agregar, cn);
                     cm.Parameters.AddWithValue("@barrio", txt_nombre.Text);
                     cm.Parameters.AddWithValue("@idsector", idsector);
@@ -541,34 +543,46 @@ namespace Principal_Internet_elvis.Ubicacion
 
         public void modificar()
         {
+            idse();
 
             string comando;
 
-            if (Text == "MODIFICAR-COLONIA")
+            try
             {
-                comando = "UPDATE Colonia SET colonia = @colonia,idsector = @idsector WHERE idcolonia = @id";
-                cm = new SqlCommand(comando,cn);
-                cm.Parameters.AddWithValue("@colonia",txt_nombre.Text);
-                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
-                cm.ExecuteNonQuery();
-            }
-            else if (Text == "MODIFICAR-BARRIO")
-            {
-                comando = "UPDATE Barrio SET barrio = @barrio,idsector = @idsector WHERE idbarrio = @id";
-                cm = new SqlCommand(comando, cn);
-                cm.Parameters.AddWithValue("@barrio", txt_nombre.Text);
-                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
-                cm.ExecuteNonQuery();
-            }
-            else if (Text == "MODIFICAR-SECTOR")
-            {
-                comando = "UPDATE Sector SET sector = @sector WHERE idsector = @id";
-                cm = new SqlCommand(comando, cn);
-                cm.Parameters.AddWithValue("@sector", txt_nombre.Text);
-                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
-                cm.ExecuteNonQuery();
-            }
+                if (Text == "MODIFICAR-COLONIA")
+                {
+                    comando = "UPDATE Colonia SET colonia = @colonia,idsector = @idsector WHERE idcolonia = @id";
+                    cm = new SqlCommand(comando, cn);
+                    cm.Parameters.AddWithValue("@colonia", txt_nombre.Text);
+                    cm.Parameters.AddWithValue("@id", int.Parse(txt_codigo.Text));
+                    cm.Parameters.AddWithValue("@idsector", idsector);
+                    cm.ExecuteNonQuery();
+                }
+                else if (Text == "MODIFICAR-BARRIO")
+                {
+                    comando = "UPDATE Barrio SET barrio = @barrio,idsector = @idsector WHERE idbarrio = @id";
+                    cm = new SqlCommand(comando, cn);
+                    cm.Parameters.AddWithValue("@barrio", txt_nombre.Text);
+                    cm.Parameters.AddWithValue("@id", int.Parse(txt_codigo.Text));
+                    cm.Parameters.AddWithValue("@idsector", idsector);
+                    cm.ExecuteNonQuery();
+                }
+                else if (Text == "MODIFICAR-SECTOR")
+                {
+                    comando = "UPDATE Sector SET sector = @sector WHERE idsector = @id";
+                    cm = new SqlCommand(comando, cn);
+                    cm.Parameters.AddWithValue("@sector", txt_nombre.Text);
+                    cm.Parameters.AddWithValue("@id", int.Parse(txt_codigo.Text));
+                    cm.Parameters.AddWithValue("@idsector", idsector);
+                    cm.ExecuteNonQuery();
+                }
 
+                MessageBox.Show("Actualizacion realizada con exito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo realizar la actualizacion: " +ex.ToString());
+            }
 
         }
 

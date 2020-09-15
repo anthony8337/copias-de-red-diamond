@@ -33,21 +33,21 @@
             this.bt_barrio = new System.Windows.Forms.Button();
             this.bt_lugar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ch_sectorb = new System.Windows.Forms.RadioButton();
+            this.ch_nombreb = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.ch_sector = new System.Windows.Forms.RadioButton();
+            this.ch_barrio = new System.Windows.Forms.RadioButton();
+            this.ch_colonia = new System.Windows.Forms.RadioButton();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -96,9 +96,9 @@
             // 
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.ch_sector);
+            this.groupBox2.Controls.Add(this.ch_barrio);
+            this.groupBox2.Controls.Add(this.ch_colonia);
             this.groupBox2.Controls.Add(this.txt_buscar);
             this.groupBox2.Location = new System.Drawing.Point(12, 98);
             this.groupBox2.Name = "groupBox2";
@@ -106,6 +106,40 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "BUSCAR UBICACIONES";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ch_sectorb);
+            this.groupBox4.Controls.Add(this.ch_nombreb);
+            this.groupBox4.Location = new System.Drawing.Point(237, 41);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(103, 69);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "BUSCAR POR:";
+            // 
+            // ch_sectorb
+            // 
+            this.ch_sectorb.AutoSize = true;
+            this.ch_sectorb.Location = new System.Drawing.Point(6, 42);
+            this.ch_sectorb.Name = "ch_sectorb";
+            this.ch_sectorb.Size = new System.Drawing.Size(69, 17);
+            this.ch_sectorb.TabIndex = 9;
+            this.ch_sectorb.TabStop = true;
+            this.ch_sectorb.Text = "SECTOR";
+            this.ch_sectorb.UseVisualStyleBackColor = true;
+            // 
+            // ch_nombreb
+            // 
+            this.ch_nombreb.AutoSize = true;
+            this.ch_nombreb.Checked = true;
+            this.ch_nombreb.Location = new System.Drawing.Point(6, 19);
+            this.ch_nombreb.Name = "ch_nombreb";
+            this.ch_nombreb.Size = new System.Drawing.Size(72, 17);
+            this.ch_nombreb.TabIndex = 8;
+            this.ch_nombreb.TabStop = true;
+            this.ch_nombreb.Text = "NOMBRE";
+            this.ch_nombreb.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -115,41 +149,44 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "BUSCAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // radioButton3
+            // ch_sector
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(162, 18);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(69, 17);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "SECTOR";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.ch_sector.AutoSize = true;
+            this.ch_sector.Location = new System.Drawing.Point(162, 18);
+            this.ch_sector.Name = "ch_sector";
+            this.ch_sector.Size = new System.Drawing.Size(69, 17);
+            this.ch_sector.TabIndex = 5;
+            this.ch_sector.TabStop = true;
+            this.ch_sector.Text = "SECTOR";
+            this.ch_sector.UseVisualStyleBackColor = true;
+            this.ch_sector.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // radioButton2
+            // ch_barrio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(90, 18);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(66, 17);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "BARRIO";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.ch_barrio.AutoSize = true;
+            this.ch_barrio.Location = new System.Drawing.Point(90, 18);
+            this.ch_barrio.Name = "ch_barrio";
+            this.ch_barrio.Size = new System.Drawing.Size(66, 17);
+            this.ch_barrio.TabIndex = 4;
+            this.ch_barrio.TabStop = true;
+            this.ch_barrio.Text = "BARRIO";
+            this.ch_barrio.UseVisualStyleBackColor = true;
+            this.ch_barrio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton1
+            // ch_colonia
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 18);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(72, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.Text = "COLONIA";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.ch_colonia.AutoSize = true;
+            this.ch_colonia.Checked = true;
+            this.ch_colonia.Location = new System.Drawing.Point(12, 18);
+            this.ch_colonia.Name = "ch_colonia";
+            this.ch_colonia.Size = new System.Drawing.Size(72, 17);
+            this.ch_colonia.TabIndex = 3;
+            this.ch_colonia.TabStop = true;
+            this.ch_colonia.Text = "COLONIA";
+            this.ch_colonia.UseVisualStyleBackColor = true;
+            this.ch_colonia.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // txt_buscar
             // 
@@ -184,39 +221,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.radioButton5);
-            this.groupBox4.Controls.Add(this.radioButton4);
-            this.groupBox4.Location = new System.Drawing.Point(237, 41);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(103, 69);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "BUSCAR POR:";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(6, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(72, 17);
-            this.radioButton4.TabIndex = 8;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "NOMBRE";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 42);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(69, 17);
-            this.radioButton5.TabIndex = 9;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "SECTOR";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
             // UbicacionTipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,10 +239,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -252,13 +256,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridView dgv_tabla;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton ch_sector;
+        private System.Windows.Forms.RadioButton ch_barrio;
+        private System.Windows.Forms.RadioButton ch_colonia;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton ch_nombreb;
+        private System.Windows.Forms.RadioButton ch_sectorb;
     }
 }

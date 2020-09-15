@@ -17,7 +17,7 @@ namespace Principal_Internet_elvis.Copia_de_seguridad
     {
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=master;Integrated Security=True");
         SqlCommand cm;
-        SqlCommand cm2;
+        SqlCommand cm2,cm3,cm4;
 
         string fecha = (System.DateTime.Today.Day.ToString())+"_"+(System.DateTime.Today.Month.ToString()) + "_" + (System.DateTime.Today.Year.ToString());
 
@@ -47,22 +47,26 @@ namespace Principal_Internet_elvis.Copia_de_seguridad
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                
+                string k = openFileDialog1.FileName;
+                string a1 = "ALTER DATABASE proyecto SET  SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                string a2 = "DROP DATABASE proyecto";
+                string a3 = "RESTORE DATABASE proyecto FROM  DISK = N'" + k + "' WITH  FILE = 1,  NOUNLOAD,  STATS = 5";
+
+
+
+
                 try
                 {
-
-                    string k = openFileDialog1.FileName;
-
                     this.timer1.Start();
-                    string a1 = "RESTORE DATABASE proyecto FROM  DISK = N'"+k+"' WITH REPLACE";
-
+                    
                     cm = new SqlCommand("use master", cn);
-                    cm2 = new SqlCommand(a1, cn);
-
+                    cm2 = new SqlCommand(a2, cn);
+                    cm3 = new SqlCommand(a3, cn);
+                    
                     cm.ExecuteNonQuery();
                     cm2.ExecuteNonQuery();
-
-
+                    cm3.ExecuteNonQuery();
+                    
                     MessageBox.Show("Se realizo la restauracion con exito");
                     this.timer1.Stop();
                     this.progressBar1.Value = 0;
@@ -70,7 +74,49 @@ namespace Principal_Internet_elvis.Copia_de_seguridad
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Se encontro fallos en: " + ex.ToString());
+                    try
+                    {
+                        this.timer1.Start();
+
+                        cm = new SqlCommand("use master", cn);
+                        cm3 = new SqlCommand(a3, cn);
+
+                        cm.ExecuteNonQuery();
+                        cm3.ExecuteNonQuery();
+
+                        MessageBox.Show("Se realizo la restauracion con exito");
+                        this.timer1.Stop();
+                        this.progressBar1.Value = 0;
+                    }
+                    catch (Exception ea)
+                    {
+                        try
+                        {
+                            this.timer1.Start();
+
+                            cm = new SqlCommand("use master", cn);
+                            cm2 = new SqlCommand(a1, cn);
+                            cm3 = new SqlCommand(a2, cn);
+                            cm4 = new SqlCommand(a3, cn);
+
+
+                            cm.ExecuteNonQuery();
+                            cm2.ExecuteNonQuery();
+                            cm3.ExecuteNonQuery();
+                            cm4.ExecuteNonQuery();
+
+
+                            MessageBox.Show("Se realizo la restauracion con exito");
+                            this.timer1.Stop();
+                            this.progressBar1.Value = 0;
+                        }
+                        catch (Exception ee)
+                        {
+                            MessageBox.Show("Se encontro fallos en: " + ea.ToString());
+                            this.timer1.Stop();
+                            this.progressBar1.Value = 0;
+                        }
+                    }
                 }
             }
         }
