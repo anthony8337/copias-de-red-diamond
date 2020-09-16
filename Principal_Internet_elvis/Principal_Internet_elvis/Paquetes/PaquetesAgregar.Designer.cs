@@ -36,6 +36,7 @@
             this.txt_p_servicio = new System.Windows.Forms.TextBox();
             this.gb_c1 = new System.Windows.Forms.GroupBox();
             this.txt_descuento = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.bt_aceptar = new System.Windows.Forms.Button();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -48,9 +49,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txt_nuevo_presio = new System.Windows.Forms.TextBox();
             this.btn_borrar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.gb_codigo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gb_c1.SuspendLayout();
@@ -66,7 +64,7 @@
             this.gb_codigo.Controls.Add(this.txt_codigo);
             this.gb_codigo.Location = new System.Drawing.Point(510, 12);
             this.gb_codigo.Name = "gb_codigo";
-            this.gb_codigo.Size = new System.Drawing.Size(113, 51);
+            this.gb_codigo.Size = new System.Drawing.Size(162, 51);
             this.gb_codigo.TabIndex = 0;
             this.gb_codigo.TabStop = false;
             this.gb_codigo.Text = "CODIGO";
@@ -76,7 +74,7 @@
             this.txt_codigo.Enabled = false;
             this.txt_codigo.Location = new System.Drawing.Point(6, 19);
             this.txt_codigo.Name = "txt_codigo";
-            this.txt_codigo.Size = new System.Drawing.Size(101, 20);
+            this.txt_codigo.Size = new System.Drawing.Size(150, 20);
             this.txt_codigo.TabIndex = 1;
             // 
             // groupBox2
@@ -116,9 +114,10 @@
             // gb_c1
             // 
             this.gb_c1.Controls.Add(this.txt_descuento);
+            this.gb_c1.Controls.Add(this.label1);
             this.gb_c1.Location = new System.Drawing.Point(510, 69);
             this.gb_c1.Name = "gb_c1";
-            this.gb_c1.Size = new System.Drawing.Size(113, 51);
+            this.gb_c1.Size = new System.Drawing.Size(162, 51);
             this.gb_c1.TabIndex = 2;
             this.gb_c1.TabStop = false;
             this.gb_c1.Text = "DESCUENTO";
@@ -128,12 +127,22 @@
             this.txt_descuento.Location = new System.Drawing.Point(6, 19);
             this.txt_descuento.MaxLength = 20;
             this.txt_descuento.Name = "txt_descuento";
-            this.txt_descuento.Size = new System.Drawing.Size(101, 20);
-            this.txt_descuento.TabIndex = 1;
+            this.txt_descuento.Size = new System.Drawing.Size(132, 20);
+            this.txt_descuento.TabIndex = 3;
+            this.txt_descuento.TextChanged += new System.EventHandler(this.txt_descuento_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(141, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "%";
             // 
             // bt_aceptar
             // 
-            this.bt_aceptar.Location = new System.Drawing.Point(510, 181);
+            this.bt_aceptar.Location = new System.Drawing.Point(535, 181);
             this.bt_aceptar.Name = "bt_aceptar";
             this.bt_aceptar.Size = new System.Drawing.Size(113, 49);
             this.bt_aceptar.TabIndex = 4;
@@ -174,6 +183,7 @@
             this.txt_pre_s_servicio.Name = "txt_pre_s_servicio";
             this.txt_pre_s_servicio.Size = new System.Drawing.Size(231, 20);
             this.txt_pre_s_servicio.TabIndex = 1;
+            this.txt_pre_s_servicio.Text = "0";
             // 
             // groupBox3
             // 
@@ -226,16 +236,17 @@
             this.txt_pre_p_servicio.Name = "txt_pre_p_servicio";
             this.txt_pre_p_servicio.Size = new System.Drawing.Size(231, 20);
             this.txt_pre_p_servicio.TabIndex = 1;
+            this.txt_pre_p_servicio.Text = "0";
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.txt_nuevo_presio);
             this.groupBox5.Location = new System.Drawing.Point(510, 124);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(113, 51);
+            this.groupBox5.Size = new System.Drawing.Size(162, 51);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "P. PAQUETE";
+            this.groupBox5.Text = "PRECIO DEL PAQUETE";
             // 
             // txt_nuevo_presio
             // 
@@ -243,12 +254,12 @@
             this.txt_nuevo_presio.Location = new System.Drawing.Point(6, 19);
             this.txt_nuevo_presio.MaxLength = 20;
             this.txt_nuevo_presio.Name = "txt_nuevo_presio";
-            this.txt_nuevo_presio.Size = new System.Drawing.Size(101, 20);
+            this.txt_nuevo_presio.Size = new System.Drawing.Size(150, 20);
             this.txt_nuevo_presio.TabIndex = 1;
             // 
             // btn_borrar
             // 
-            this.btn_borrar.Location = new System.Drawing.Point(510, 236);
+            this.btn_borrar.Location = new System.Drawing.Point(535, 236);
             this.btn_borrar.Name = "btn_borrar";
             this.btn_borrar.Size = new System.Drawing.Size(113, 49);
             this.btn_borrar.TabIndex = 7;
@@ -256,38 +267,11 @@
             this.btn_borrar.UseVisualStyleBackColor = true;
             this.btn_borrar.Click += new System.EventHandler(this.btn_borrar_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(517, 291);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(99, 20);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Visible = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(517, 317);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(99, 20);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(517, 343);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.Visible = false;
-            // 
             // PaquetesAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 480);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(684, 480);
             this.Controls.Add(this.btn_borrar);
             this.Controls.Add(this.bt_aceptar);
             this.Controls.Add(this.groupBox5);
@@ -319,7 +303,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -338,14 +321,12 @@
         private System.Windows.Forms.TextBox txt_s_servicio;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txt_pre_p_servicio;
-        private System.Windows.Forms.TextBox txt_descuento;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txt_nuevo_presio;
         private System.Windows.Forms.Button btn_borrar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_descuento;
     }
 }

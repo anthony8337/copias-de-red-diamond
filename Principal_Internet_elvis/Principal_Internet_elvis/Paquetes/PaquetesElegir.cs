@@ -68,15 +68,12 @@ namespace Principal_Internet_elvis.Paquetes
             {
                 if (Text == "ELEGIR EL PRIMER SERVICIO")
                 {
-                    PaquetesAgregar.id1 = dgv_tabla.CurrentRow.Cells[0].Value.ToString();
+                    
                     PaquetesAgregar.P_servicio = dgv_tabla.CurrentRow.Cells[1].Value.ToString();
-                    PaquetesAgregar.Pre_P_servicio = dgv_tabla.CurrentRow.Cells[2].Value.ToString();
                 }
                 else
                 {
-                    PaquetesAgregar.id2 = dgv_tabla.CurrentRow.Cells[0].Value.ToString();
                     PaquetesAgregar.S_servicio = dgv_tabla.CurrentRow.Cells[1].Value.ToString();
-                    PaquetesAgregar.Pre_S_servicio = dgv_tabla.CurrentRow.Cells[2].Value.ToString();
                 }
 
                 this.Dispose();

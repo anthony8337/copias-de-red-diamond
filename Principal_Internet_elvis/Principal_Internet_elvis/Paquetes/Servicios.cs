@@ -66,6 +66,11 @@ namespace Principal_Internet_elvis.Paquetes
                 limpiar();
                 MessageBox.Show("No pueden haber campos vacios");
             }
+            else if(txt_codigo.Text != "")
+            {
+                limpiar();
+                MessageBox.Show("No se permite datos repetidos");
+            }
             else
             { 
                 try
@@ -115,13 +120,10 @@ namespace Principal_Internet_elvis.Paquetes
                 try
                 {
                     cm = new SqlCommand(actu, cn);
+                    cm.Parameters.AddWithValue("@id", txt_codigo.Text);
                     cm.Parameters.AddWithValue("@descripcion", txt_p_servicio.Text);
                     cm.Parameters.AddWithValue("@precio", txt_pre_p_servicio.Text);
-                    cm.Parameters.AddWithValue("@estado", "Desactivado");
-                    cm.ExecuteNonQuery();
-                    tabla();
-                    limpiar();
-                    cm.Parameters.AddWithValue("@estado", "Desactivado");
+                    cm.Parameters.AddWithValue("@estado", "DESACTIVADO");
                     cm.ExecuteNonQuery();
                     tabla();
                     limpiar();
@@ -150,7 +152,13 @@ namespace Principal_Internet_elvis.Paquetes
 
         private void bt_aceptar_Click(object sender, EventArgs e)
         {
-            agregar();
+            if (Text == "AGREGAR-SERVICIO")
+            {
+                agregar();
+            } else if (Text == "MODIFICAR-SERVICIO")
+            {
+                actualizar();
+            }
         }
 
         private void btn_borrar_Click(object sender, EventArgs e)

@@ -171,13 +171,14 @@ namespace Principal_Internet_elvis.Ubicacion
 
             public void idse()
         {
-            
-            
+            try
+            {
                 cm = new SqlCommand("Select idsector from Sector WHERE sector = @sector", cn);
                 cm.Parameters.AddWithValue("@sector", sector);
                 idsector = int.Parse(cm.ExecuteScalar().ToString());
-           
-            
+            }
+            catch (Exception ex)
+            { }
         }
 
         public UbicacionAgregar()
