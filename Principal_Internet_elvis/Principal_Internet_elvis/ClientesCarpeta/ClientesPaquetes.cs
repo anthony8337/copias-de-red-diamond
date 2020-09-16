@@ -55,7 +55,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         
         private void bt_salir_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Dispose();
         }
 
         public void addFuente(Font f)
@@ -90,6 +90,11 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         {
             cn.Open();
             groupBox1.Text = "PAQUETES REGISTRADOS DE: " + nombre;
+            tabla();
+        }
+
+        private void ClientesPaquetes_Activated(object sender, EventArgs e)
+        {
             tabla();
         }
     }

@@ -34,6 +34,7 @@ namespace Principal_Internet_elvis.Paquetes
                 cm.Parameters.AddWithValue("@idpaquete", idpaquete);
                 cm.Parameters.AddWithValue("@estado", "DESACTIVADO");
                 cm.ExecuteNonQuery();
+                MessageBox.Show("Paquete registrado con exito");
             }
             catch (Exception ex)
             {
@@ -106,18 +107,21 @@ namespace Principal_Internet_elvis.Paquetes
 
         private void PaquetesElegir_Load(object sender, EventArgs e)
         {
+            cn.Open();
             tabla();
         }
 
         private void bt_aceptar_Click(object sender, EventArgs e)
         {
-            if (Text == "ELEGIR-PAQUETE")
+            if (Text == "ELEGIR-PAQUETES")
             {
                 agregar_pc();
+                this.Dispose();
             }
             else
             {
                 selecionar();
+                this.Dispose();
             }
             
         }

@@ -72,7 +72,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         
         private void Clientes_Load(object sender, EventArgs e)
         {
-
+            limpiar();
             cargar_inicio();
 
         }
@@ -320,7 +320,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         private void bt_paquetes_Click(object sender, EventArgs e)
         {
-
+            lugar = txt_lugar.Text;
             if (txt_codigo.Text == "")
             {
                 MessageBox.Show("Por favor, seleccione un cliente registrado");
@@ -425,7 +425,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         private void Clientes_Activated(object sender, EventArgs e)
         {
             txt_lugar.Text = lugar;
-            lugar = txt_lugar.Text;
+            
         }
     }
     }

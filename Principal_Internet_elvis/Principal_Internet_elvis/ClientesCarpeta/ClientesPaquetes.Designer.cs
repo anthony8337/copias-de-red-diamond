@@ -101,6 +101,7 @@
             this.Name = "ClientesPaquetes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientesPaquetes";
+            this.Activated += new System.EventHandler(this.ClientesPaquetes_Activated);
             this.Load += new System.EventHandler(this.ClientesPaquetes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.groupBox1.ResumeLayout(false);

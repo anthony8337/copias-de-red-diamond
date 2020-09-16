@@ -43,7 +43,7 @@
             this.dgv_tabla.Location = new System.Drawing.Point(12, 12);
             this.dgv_tabla.Name = "dgv_tabla";
             this.dgv_tabla.ReadOnly = true;
-            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgv_tabla.Size = new System.Drawing.Size(386, 205);
             this.dgv_tabla.TabIndex = 0;
             this.dgv_tabla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellClick);
