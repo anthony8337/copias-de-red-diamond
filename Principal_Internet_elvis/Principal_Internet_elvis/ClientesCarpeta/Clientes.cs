@@ -27,40 +27,43 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         public void yose()
         {
-            cm = new SqlCommand("Select tipolugar from Cliente WHERE lugar = @lugar", cn);
-            cm.Parameters.AddWithValue("@lugar",txt_lugar.Text);
-            tipo = cm.ExecuteScalar().ToString();
-
-            if (tipo == "Colonia")
-            {
-                try
-                {
-                    cm = new SqlCommand("Select idsector from Colonia WHERE colonia = @lugar", cn);
-                    cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
-                    idsector = int.Parse(cm.ExecuteScalar().ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Se encontro fallos en: "+ex.ToString());
-                }
-                
-            }
-            else if(tipo == "Barrio")
-            {
-                try
-                {
-                    cm = new SqlCommand("Select idsector from Barrio WHERE barrio = @lugar", cn);
+            try {
+                cm = new SqlCommand("Select tipolugar from Cliente WHERE lugar = @lugar", cn);
                 cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
-                idsector = int.Parse(cm.ExecuteScalar().ToString());
-                }
-                catch (Exception ex)
+                tipo = cm.ExecuteScalar().ToString();
+
+                if (tipo == "Colonia")
                 {
-                    MessageBox.Show("Se encontro fallos en: " + ex.ToString());
+                    try
+                    {
+                        cm = new SqlCommand("Select idsector from Colonia WHERE colonia = @lugar", cn);
+                        cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
+                        idsector = int.Parse(cm.ExecuteScalar().ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Se encontro fallos en: " + ex.ToString());
+                    }
+
+                }
+                else if (tipo == "Barrio")
+                {
+                    try
+                    {
+                        cm = new SqlCommand("Select idsector from Barrio WHERE barrio = @lugar", cn);
+                        cm.Parameters.AddWithValue("@lugar", txt_lugar.Text);
+                        idsector = int.Parse(cm.ExecuteScalar().ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Se encontro fallos en: " + ex.ToString());
+                    }
+
                 }
 
             }
-
-        }
+            catch (Exception ex) { }
+            }
 
         public Clientes()
         {
@@ -255,7 +258,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             txt_telefono.Text = "";
             txt_correo.Text = "";
             txt_direccion.Text = "";
-            txt_lugar.Text ="";
+            txt_lugar.Text = "";
             dtp_fecha.Value = DateTime.Now;
         }
     
@@ -317,11 +320,20 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         private void bt_paquetes_Click(object sender, EventArgs e)
         {
-            Program.clientesPaquetes = new ClientesPaquetes();
-            Program.clientesPaquetes.TopMost = true;
-            Program.clientesPaquetes.Focus();
-            Program.clientesPaquetes.BringToFront();
-            Program.clientesPaquetes.Show();
+
+            if (txt_codigo.Text == "")
+            {
+                MessageBox.Show("Por favor, seleccione un cliente registrado");
+            }
+            else
+            {
+
+                Program.clientesPaquetes = new ClientesPaquetes();
+                Program.clientesPaquetes.TopMost = true;
+                Program.clientesPaquetes.Focus();
+                Program.clientesPaquetes.BringToFront();
+                Program.clientesPaquetes.Show();
+            }
         }
 
         private void bt_salir_Click(object sender, EventArgs e)
@@ -396,6 +408,12 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                 rb_femenino.Checked = false;
                 rb_masculino.Checked = true;
             }
+
+            ClientesPaquetes.nombre = txt_nombre.Text;
+            ClientesPaquetes.idregistro = int.Parse(txt_codigo.Text);
+            
+
+
             yose();
         }
 
@@ -407,7 +425,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         private void Clientes_Activated(object sender, EventArgs e)
         {
             txt_lugar.Text = lugar;
-            
+            lugar = txt_lugar.Text;
         }
     }
     }

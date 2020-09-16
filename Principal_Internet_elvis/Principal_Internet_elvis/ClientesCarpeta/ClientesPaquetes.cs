@@ -8,26 +8,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Principal_Internet_elvis.ClientesCarpeta
 {
     public partial class ClientesPaquetes : Form
     {
-        
+        SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
+        SqlCommand cm;
 
-        public ClientesPaquetes()
+        public static int idregistro;
+        public static string nombre;
+
+        public void tabla()
+        {
+            try
+            {
+                cm = new SqlCommand("Select * from V_clientepaquete WHERE idcliente = '"+idregistro+"'", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+        }
+
+            public ClientesPaquetes()
         {
             InitializeComponent();
         }
-
-        private void ClientesPaquetes_Load(object sender, EventArgs e)
-        {
-            limpiar();
-        }
-
-        public void limpiar()
-        { }
-
+        
         private void bt_agregar_Click(object sender, EventArgs e)
         {
             Program.paquetesElegir = new PaquetesElegir();
@@ -37,10 +52,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             Program.paquetesElegir.Show();
             Program.paquetesElegir.Focus();
         }
-
-        private void bt_quitar_Click(object sender, EventArgs e)
-        { }
-
+        
         private void bt_salir_Click(object sender, EventArgs e)
         {
             Close();
@@ -74,9 +86,11 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             }
         }
 
-        private void dgv_tabla_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void ClientesPaquetes_Load(object sender, EventArgs e)
         {
-            
+            cn.Open();
+            groupBox1.Text = "PAQUETES REGISTRADOS DE: " + nombre;
+            tabla();
         }
     }
 }

@@ -17,10 +17,29 @@ namespace Principal_Internet_elvis.Paquetes
 
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
         SqlCommand cm;
+        public int idpaquete;
 
         public PaquetesElegir()
         {
             InitializeComponent();
+        }
+
+
+        public void agregar_pc()
+        {
+            try
+            {
+                cm = new SqlCommand("INSERT INTO ClientePaquete(idcliente,idpaquete,estado) VALUES (@idcliente, @idpaquete, @estado)", cn);
+                cm.Parameters.AddWithValue("@idcliente", ClientesCarpeta.ClientesPaquetes.idregistro);
+                cm.Parameters.AddWithValue("@idpaquete", idpaquete);
+                cm.Parameters.AddWithValue("@estado", "DESACTIVADO");
+                cm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se encontro fallos en: " +ex.ToString());
+            }
+            
         }
 
         public void tabla()
@@ -92,12 +111,25 @@ namespace Principal_Internet_elvis.Paquetes
 
         private void bt_aceptar_Click(object sender, EventArgs e)
         {
-            selecionar();
+            if (Text == "ELEGIR-PAQUETE")
+            {
+                agregar_pc();
+            }
+            else
+            {
+                selecionar();
+            }
+            
         }
 
         private void bt_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgv_tabla_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idpaquete = int.Parse(dgv_tabla.CurrentRow.Cells[0].Value.ToString());
         }
     }
 }
