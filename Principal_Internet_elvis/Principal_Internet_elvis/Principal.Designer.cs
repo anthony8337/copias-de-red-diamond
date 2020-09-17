@@ -41,12 +41,12 @@
             this.btnConfiguracion = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.img_logo = new System.Windows.Forms.PictureBox();
-            this.dgv_pendientes = new System.Windows.Forms.DataGridView();
+            this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.lb_pendiente = new System.Windows.Forms.Label();
             this.bt_actualizar = new System.Windows.Forms.Button();
             this.panel_botones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pendientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_botones
@@ -215,12 +215,12 @@
             this.img_logo.TabIndex = 0;
             this.img_logo.TabStop = false;
             // 
-            // dgv_pendientes
+            // dgv_tabla
             // 
-            this.dgv_pendientes.AllowUserToAddRows = false;
-            this.dgv_pendientes.AllowUserToDeleteRows = false;
-            this.dgv_pendientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_pendientes.BackgroundColor = System.Drawing.Color.SlateGray;
+            this.dgv_tabla.AllowUserToAddRows = false;
+            this.dgv_tabla.AllowUserToDeleteRows = false;
+            this.dgv_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_tabla.BackgroundColor = System.Drawing.Color.SlateGray;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,28 +228,28 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_pendientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_pendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_pendientes.Location = new System.Drawing.Point(281, 452);
-            this.dgv_pendientes.Name = "dgv_pendientes";
-            this.dgv_pendientes.ReadOnly = true;
-            this.dgv_pendientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_pendientes.Size = new System.Drawing.Size(492, 255);
-            this.dgv_pendientes.TabIndex = 3;
-            this.dgv_pendientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pendientes_CellDoubleClick);
+            this.dgv_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tabla.Location = new System.Drawing.Point(12, 465);
+            this.dgv_tabla.Name = "dgv_tabla";
+            this.dgv_tabla.ReadOnly = true;
+            this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_tabla.Size = new System.Drawing.Size(761, 242);
+            this.dgv_tabla.TabIndex = 3;
+            this.dgv_tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pendientes_CellDoubleClick);
             // 
             // lb_pendiente
             // 
             this.lb_pendiente.AutoSize = true;
-            this.lb_pendiente.Location = new System.Drawing.Point(591, 395);
+            this.lb_pendiente.Location = new System.Drawing.Point(523, 424);
             this.lb_pendiente.Name = "lb_pendiente";
-            this.lb_pendiente.Size = new System.Drawing.Size(180, 15);
+            this.lb_pendiente.Size = new System.Drawing.Size(250, 15);
             this.lb_pendiente.TabIndex = 4;
-            this.lb_pendiente.Text = "PENDIENTE DE INSTALACION";
+            this.lb_pendiente.Text = "CLIENTES CON INSTALACION PENDIENTE";
             // 
             // bt_actualizar
             // 
-            this.bt_actualizar.Location = new System.Drawing.Point(629, 413);
+            this.bt_actualizar.Location = new System.Drawing.Point(627, 387);
             this.bt_actualizar.Name = "bt_actualizar";
             this.bt_actualizar.Size = new System.Drawing.Size(144, 33);
             this.bt_actualizar.TabIndex = 5;
@@ -266,7 +266,7 @@
             this.Controls.Add(this.bt_actualizar);
             this.Controls.Add(this.lb_pendiente);
             this.Controls.Add(this.img_logo);
-            this.Controls.Add(this.dgv_pendientes);
+            this.Controls.Add(this.dgv_tabla);
             this.Controls.Add(this.panel_botones);
             this.Enabled = false;
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -280,7 +280,7 @@
             this.Resize += new System.EventHandler(this.Principal_Resize);
             this.panel_botones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pendientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,7 +298,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.PictureBox img_logo;
         private System.Windows.Forms.Button btnEstado;
-        private System.Windows.Forms.DataGridView dgv_pendientes;
+        private System.Windows.Forms.DataGridView dgv_tabla;
         private System.Windows.Forms.Label lb_pendiente;
         private System.Windows.Forms.Button bt_actualizar;
     }

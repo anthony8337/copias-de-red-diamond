@@ -20,7 +20,7 @@ namespace Proyecto_Internet
     {
 
         
-
+        
         public Inicio()
         {
             InitializeComponent();  
@@ -60,16 +60,18 @@ namespace Proyecto_Internet
             if (txtContra.Text == clave && txtUsuario.Text == tecnico)
             {
 
-                MessageBox.Show("Bienvenido mi señor ^3^");
+                MessageBox.Show("Bienvenido "+tecnico);
 
                 Program.principal.Enabled = true;
+                Program.principal.tabla();
 
                 this.Dispose();
 
             }
             else
             {
-                MessageBox.Show("Pone bien esa vaina pedazo de M, \nQue no tengo todo el dia >:T");
+                MessageBox.Show("El usuario o contraseña no son correctos \nPor favor, intentalo de nuevo");
+                txtUsuario.Select();
             }
 
         }

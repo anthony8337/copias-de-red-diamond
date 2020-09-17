@@ -13,6 +13,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Proyecto_dawelin
 {
@@ -23,6 +25,9 @@ namespace Proyecto_dawelin
         public string user, clave, desc, nombre;
         public Font fuente;
         public Image logo;
+
+        SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
+        SqlCommand cm;
 
         //empresa
         public string nombre_e, eslogan_e, rtn_e, cai_e, correo_e, fechalimite_e;
@@ -54,12 +59,11 @@ namespace Proyecto_dawelin
         }
 
         private void actualizar()
-        { }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
-
+            tabla();
         }
+
+
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -96,13 +100,13 @@ namespace Proyecto_dawelin
 
         private void dgv_pendientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 selectedRowCount = dgv_pendientes.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            Int32 selectedRowCount = dgv_tabla.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
             {
-                int row = dgv_pendientes.CurrentRow.Index;
+                int row = dgv_tabla.CurrentRow.Index;
 
                 Program.estado_Cliente = new Estado_cliente();
-                Program.estado_Cliente.accesoRapido(dgv_pendientes.Rows[row].Cells["nombre"].Value.ToString());
+                Program.estado_Cliente.accesoRapido(dgv_tabla.Rows[row].Cells["nombre"].Value.ToString());
                 Program.estado_Cliente.Show();
                 Program.estado_Cliente.Focus();
                 Program.estado_Cliente.BringToFront();
@@ -117,8 +121,14 @@ namespace Proyecto_dawelin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            cn.Open();
 
+            Principal p = new Principal();
+
+            if (p.Enabled == true)
+            {
+                tabla();
+            }
             Program.inicio = new Inicio();
             Program.inicio.Show();
             Program.inicio.TopMost = true; 
@@ -152,8 +162,8 @@ namespace Proyecto_dawelin
             img_logo.Left = this.Width - (img_logo.Width + 25);
             lb_pendiente.Left = this.Width - (lb_pendiente.Width + 25);
             bt_actualizar.Left = this.Width - (bt_actualizar.Width + 25);
-            dgv_pendientes.Left = this.Width - (dgv_pendientes.Width + 25);
-            dgv_pendientes.Top = this.Height - (dgv_pendientes.Height + 50);
+            dgv_tabla.Left = this.Width - (dgv_tabla.Width + 25);
+            dgv_tabla.Top = this.Height - (dgv_tabla.Height + 50);
         }
 
         private void btnUbicacion_Click(object sender, EventArgs e)
@@ -189,6 +199,37 @@ namespace Proyecto_dawelin
             Program.configuracion.Show();
             Program.OpCliente.Focus();
             Program.OpCliente.BringToFront();
+        }
+
+        public void tabla()
+        {
+            try
+            {
+                cm = new SqlCommand("Select * from Cliente WHERE estado = 'PENDIENTE INSTALACION'", cn);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.SelectCommand = cm;
+                DataTable tabla = new DataTable();
+                adp.Fill(tabla);
+                dgv_tabla.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+            }
+            for (int i = 0; i < dgv_tabla.Rows.Count; i++)
+            {
+                if (dgv_tabla.Rows[i].Cells["estado"].Value.ToString().Equals("Activo"))
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                }
+                else
+                {
+                    dgv_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+                dgv_tabla.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+            }
+
+
         }
 
         public void addFuente(Font f)

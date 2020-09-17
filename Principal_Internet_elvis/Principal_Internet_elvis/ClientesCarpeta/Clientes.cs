@@ -19,7 +19,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
     public partial class Clientes : Form
     {
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=Proyecto;Integrated Security=True");
-        SqlCommand cm;
+        SqlCommand cm,cm2;
 
         public static string lugar;
         public static int idsector;
@@ -83,6 +83,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             if (Text != "CLIENTE-AGREGAR")
             {
                 btn_borrar.Enabled = false;
+                bt_paquetes.Enabled = false;
             }
 
             try
@@ -196,6 +197,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                     cm.Parameters.AddWithValue("@estado", "PENDIENTE INSTALACION");
                     cm.ExecuteNonQuery();
                     tabla();
+                    abrir_paquetes_contrata2();
                     limpiar();
                 }
             }
@@ -272,6 +274,8 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         private void bt_aceptar_Click(object sender, EventArgs e)
         {
             acciones();
+
+            Program.principal.tabla();
         }
 
 
@@ -318,7 +322,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
             
         }
 
-        private void bt_paquetes_Click(object sender, EventArgs e)
+        public void abrir_paquetes_contratados()
         {
             lugar = txt_lugar.Text;
             if (txt_codigo.Text == "")
@@ -334,6 +338,29 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                 Program.clientesPaquetes.BringToFront();
                 Program.clientesPaquetes.Show();
             }
+        }
+
+        public void abrir_paquetes_contrata2()
+        {
+            lugar = txt_lugar.Text;
+
+            cm = new SqlCommand("Select top(1) * from Cliente order by idcliente desc", cn);
+            ClientesPaquetes.idregistro = int.Parse(cm.ExecuteScalar().ToString());
+
+            ClientesPaquetes.nombre = txt_nombre.Text;
+
+                MessageBox.Show("Por favor, seleccine los paquetes para del nuevo cliente");
+                Program.clientesPaquetes = new ClientesPaquetes();
+                Program.clientesPaquetes.TopMost = true;
+                Program.clientesPaquetes.Focus();
+                Program.clientesPaquetes.BringToFront();
+                Program.clientesPaquetes.Show();
+        }
+        
+
+        private void bt_paquetes_Click(object sender, EventArgs e)
+        {
+            abrir_paquetes_contratados();
         }
 
         private void bt_salir_Click(object sender, EventArgs e)
@@ -373,20 +400,30 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         private void btn_borrar_Click(object sender, EventArgs e)
         {
-            try {
-                string borrar = "DELETE FROM Cliente WHERE idcliente = @id";
-                cm = new SqlCommand(borrar, cn);
-                cm.Parameters.AddWithValue("@id", txt_codigo.Text);
-                cm.ExecuteNonQuery();
-                limpiar();
-                tabla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("La accion no se pudo realizar: "+ex.ToString());
-            }
 
+            if (MessageBox.Show("Seguro que desea eliminar el siguiente registro seleccionado", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    cm2 = new SqlCommand("DELETE FROM ClientePaquete WHERE idcliente = @vinculo", cn);
+                    cm2.Parameters.AddWithValue("@vinculo", txt_codigo.Text);
+                    cm2.ExecuteNonQuery();
+
+
+                    string borrar = "DELETE FROM Cliente WHERE idcliente = @id";
+                    cm = new SqlCommand(borrar, cn);
+                    cm.Parameters.AddWithValue("@id", txt_codigo.Text);
+                    cm.ExecuteNonQuery();
+                    limpiar();
+                    tabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("La accion no se pudo realizar: " + ex.ToString());
+                }
             }
+            Program.principal.tabla();
+        }
 
         private void dgv_tabla_CellClick(object sender, DataGridViewCellEventArgs e)
         {
