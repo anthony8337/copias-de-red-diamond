@@ -49,6 +49,7 @@
             this.dgv_tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tabla.Size = new System.Drawing.Size(689, 235);
             this.dgv_tabla.TabIndex = 0;
+            this.dgv_tabla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tabla_CellClick);
             // 
             // bt_agregar
             // 
@@ -68,6 +69,7 @@
             this.bt_quitar.Size = new System.Drawing.Size(114, 62);
             this.bt_quitar.TabIndex = 2;
             this.bt_quitar.UseVisualStyleBackColor = true;
+            this.bt_quitar.Click += new System.EventHandler(this.bt_quitar_Click);
             // 
             // bt_salir
             // 

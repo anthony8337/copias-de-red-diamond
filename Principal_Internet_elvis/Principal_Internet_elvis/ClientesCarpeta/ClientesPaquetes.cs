@@ -16,10 +16,36 @@ namespace Principal_Internet_elvis.ClientesCarpeta
     public partial class ClientesPaquetes : Form
     {
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
-        SqlCommand cm;
+        SqlCommand cm, cm2;
 
         public static int idregistro;
-        public static string nombre;
+        public static string nombre, identificamelo;
+        public int idvinculo, idcliente;
+
+        public void eliminar()
+        {
+            if (MessageBox.Show("Seguro que desea eliminar el siguiente registro seleccionado", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    idcliente = int.Parse(dgv_tabla.CurrentRow.Cells[0].Value.ToString());
+                    cm2 = new SqlCommand("SELECT idvinculo FROM ClientePaquete WHERE idcliente = @idclie ", cn);
+                    cm2.Parameters.AddWithValue("@idclie", idcliente);
+                    identificamelo = cm2.ExecuteScalar().ToString();
+
+                    idvinculo = int.Parse(cm2.ExecuteScalar().ToString());
+
+                    cm = new SqlCommand("DELETE FROM ClientePaquete WHERE idvinculo = @vinculo", cn);
+                    cm.Parameters.AddWithValue("@vinculo", idvinculo);
+                    cm.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El registro no tiene paquetes registrados");
+                }
+            }
+        }
+    
 
         public void tabla()
         {
@@ -88,13 +114,34 @@ namespace Principal_Internet_elvis.ClientesCarpeta
 
         private void ClientesPaquetes_Load(object sender, EventArgs e)
         {
+
             cn.Open();
             groupBox1.Text = "PAQUETES REGISTRADOS DE: " + nombre;
             tabla();
+
+            try
+            {
+                idcliente = int.Parse(dgv_tabla.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Este registro no tiene paquetes registrados");
+            }
+        }
+
+        private void dgv_tabla_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idcliente = int.Parse(dgv_tabla.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void ClientesPaquetes_Activated(object sender, EventArgs e)
         {
+            tabla();
+        }
+
+        private void bt_quitar_Click(object sender, EventArgs e)
+        {
+            eliminar();
             tabla();
         }
     }

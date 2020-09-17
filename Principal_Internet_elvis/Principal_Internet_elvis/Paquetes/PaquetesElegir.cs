@@ -109,6 +109,7 @@ namespace Principal_Internet_elvis.Paquetes
         {
             cn.Open();
             tabla();
+            idpaquete = int.Parse(dgv_tabla.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void bt_aceptar_Click(object sender, EventArgs e)

@@ -33,7 +33,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         {
             groupBox1.Text = "TABLA EN VISTA: COLONIA";
             Clientes.tipo = "Colonia";
-            MessageBox.Show(Clientes.tipo);
+
             tabla();
         }
 
@@ -129,9 +129,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
                     MessageBox.Show(ee.ToString());
                 }
             }
-
             
-            MessageBox.Show(Clientes.idsector.ToString());
             this.Dispose();
         }
     }
