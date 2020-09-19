@@ -462,7 +462,6 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         private void Clientes_Activated(object sender, EventArgs e)
         {
             txt_lugar.Text = lugar;
-            
         }
     }
     }
