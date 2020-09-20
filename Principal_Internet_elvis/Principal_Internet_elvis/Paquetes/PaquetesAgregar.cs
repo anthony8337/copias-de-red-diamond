@@ -65,15 +65,15 @@ namespace Principal_Internet_elvis.Paquetes
                     if (txt_descuento.Text == "")
                     {
                         precio = float.Parse(txt_pre_p_servicio.Text) + float.Parse(txt_pre_s_servicio.Text);
-
-                        txt_nuevo_presio.Text = precio.ToString();
+                    
+                        txt_nuevo_presio.Text = Math.Round(precio).ToString();
                     }
                     else
                     {
                         precio = (float.Parse(txt_pre_p_servicio.Text) + float.Parse(txt_pre_s_servicio.Text)) * (float.Parse(txt_descuento.Text) / 100);
 
-                        txt_nuevo_presio.Text = precio.ToString();
-                    }
+                        txt_nuevo_presio.Text = Math.Round(precio).ToString();
+                }
                 }
                 catch (Exception ex)
                 { }

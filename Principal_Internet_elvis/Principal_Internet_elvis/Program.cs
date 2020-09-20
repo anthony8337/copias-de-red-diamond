@@ -48,6 +48,9 @@ namespace Principal_Internet_elvis
         public static ReportesTipo reportesTipo;
         public static Servicios servicios;
         public static Seleccionar seleccionar;
+        public static Factura factura;
+
+
 
         
 
@@ -59,12 +62,9 @@ namespace Principal_Internet_elvis
             principal = new Principal();
             Application.Run(principal);
         }
-
+        
         public static void actualizarFuente()
         {
-
-           
-
             principal.addFuente(principal.fuente);
         }
 

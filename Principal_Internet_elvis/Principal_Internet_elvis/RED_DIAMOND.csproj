@@ -97,6 +97,7 @@
     <Compile Include="Copia de seguridad\Recerva.Designer.cs">
       <DependentUpon>Recerva.cs</DependentUpon>
     </Compile>
+    <Compile Include="letras_numero.cs" />
     <Compile Include="Pagos\Estado_cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,35 +171,17 @@
     <Compile Include="Proveedor.Designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\estadocuenta.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>estadocuenta.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Reportes\Factura.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\factura.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>factura.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\mora.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mora.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Reportes\Factura.Designer.cs">
+      <DependentUpon>Factura.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ReportesTipo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\ReportesTipo.Designer.cs">
       <DependentUpon>ReportesTipo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReportesViwer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReportesViwer.Designer.cs">
-      <DependentUpon>ReportesViwer.cs</DependentUpon>
     </Compile>
     <Compile Include="Socios.cs">
       <SubType>Form</SubType>
@@ -286,23 +269,11 @@
     <EmbeddedResource Include="Proveedor.resx">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\estadocuenta.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>estadocuenta.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\factura.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>factura.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\mora.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>mora.cs</LastGenOutput>
+    <EmbeddedResource Include="Reportes\Factura.resx">
+      <DependentUpon>Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReportesTipo.resx">
       <DependentUpon>ReportesTipo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReportesViwer.resx">
-      <DependentUpon>ReportesViwer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Socios.resx">
       <DependentUpon>Socios.cs</DependentUpon>
