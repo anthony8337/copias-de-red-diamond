@@ -101,4 +101,3 @@ C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.pdb
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.ClientesCarpeta.Seleccionar.resources
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.Copia_de_seguridad.Backups.resources
-C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.Reportes.Factura.resources

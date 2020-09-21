@@ -54,7 +54,6 @@
             this.txt_codigo_p = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.dtp_fechaemision = new System.Windows.Forms.DateTimePicker();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dgv_detalles = new System.Windows.Forms.DataGridView();
             this.txt_totalpagar = new System.Windows.Forms.TextBox();
@@ -79,6 +78,10 @@
             this.txt_monto_to = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.r_15 = new System.Windows.Forms.RadioButton();
+            this.r_18 = new System.Windows.Forms.RadioButton();
+            this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.gb_cliente.SuspendLayout();
             this.gBusConcep.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_p)).BeginInit();
@@ -95,6 +98,7 @@
             this.gBusCliente.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_cliente
@@ -360,7 +364,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.dtp_fechaemision);
+            this.groupBox6.Controls.Add(this.dtp_fecha);
             this.groupBox6.Location = new System.Drawing.Point(722, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(213, 65);
@@ -368,17 +372,10 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "FECHA DE EMICION";
             // 
-            // dtp_fechaemision
-            // 
-            this.dtp_fechaemision.Location = new System.Drawing.Point(6, 26);
-            this.dtp_fechaemision.Name = "dtp_fechaemision";
-            this.dtp_fechaemision.Size = new System.Drawing.Size(200, 20);
-            this.dtp_fechaemision.TabIndex = 9;
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dgv_detalles);
-            this.groupBox7.Location = new System.Drawing.Point(12, 397);
+            this.groupBox7.Location = new System.Drawing.Point(12, 447);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(923, 114);
             this.groupBox7.TabIndex = 13;
@@ -401,7 +398,7 @@
             // txt_totalpagar
             // 
             this.txt_totalpagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_totalpagar.Location = new System.Drawing.Point(788, 530);
+            this.txt_totalpagar.Location = new System.Drawing.Point(788, 580);
             this.txt_totalpagar.Name = "txt_totalpagar";
             this.txt_totalpagar.ReadOnly = true;
             this.txt_totalpagar.Size = new System.Drawing.Size(142, 20);
@@ -411,7 +408,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(629, 530);
+            this.label9.Location = new System.Drawing.Point(629, 580);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(153, 20);
             this.label9.TabIndex = 9;
@@ -421,7 +418,7 @@
             // 
             this.btnSalir.Image = global::Principal_Internet_elvis.Properties.Resources.emblemunreadable_93487;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(170, 517);
+            this.btnSalir.Location = new System.Drawing.Point(170, 567);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(152, 55);
             this.btnSalir.TabIndex = 15;
@@ -434,7 +431,7 @@
             // 
             this.btnImprimir.Image = global::Principal_Internet_elvis.Properties.Resources.Print_icon_icons_com_55835;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(12, 517);
+            this.btnImprimir.Location = new System.Drawing.Point(12, 567);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(152, 55);
             this.btnImprimir.TabIndex = 14;
@@ -463,6 +460,7 @@
             this.bt_agregar.TabIndex = 11;
             this.bt_agregar.Text = "AGREGAR";
             this.bt_agregar.UseVisualStyleBackColor = true;
+            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
             // 
             // bt_borrar
             // 
@@ -514,7 +512,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_efectivo);
-            this.groupBox2.Location = new System.Drawing.Point(723, 326);
+            this.groupBox2.Location = new System.Drawing.Point(723, 343);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(97, 48);
             this.groupBox2.TabIndex = 19;
@@ -533,7 +531,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txt_cambio);
-            this.groupBox3.Location = new System.Drawing.Point(831, 326);
+            this.groupBox3.Location = new System.Drawing.Point(831, 343);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(104, 48);
             this.groupBox3.TabIndex = 20;
@@ -597,7 +595,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txt_monto_to);
-            this.groupBox4.Location = new System.Drawing.Point(722, 271);
+            this.groupBox4.Location = new System.Drawing.Point(722, 282);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(213, 49);
             this.groupBox4.TabIndex = 21;
@@ -615,7 +613,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBox1);
-            this.groupBox5.Location = new System.Drawing.Point(722, 326);
+            this.groupBox5.Location = new System.Drawing.Point(722, 343);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(213, 48);
             this.groupBox5.TabIndex = 22;
@@ -631,13 +629,54 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.r_18);
+            this.groupBox8.Controls.Add(this.r_15);
+            this.groupBox8.Location = new System.Drawing.Point(722, 397);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(213, 44);
+            this.groupBox8.TabIndex = 23;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "IVS";
+            // 
+            // r_15
+            // 
+            this.r_15.AutoSize = true;
+            this.r_15.Checked = true;
+            this.r_15.Location = new System.Drawing.Point(7, 19);
+            this.r_15.Name = "r_15";
+            this.r_15.Size = new System.Drawing.Size(65, 17);
+            this.r_15.TabIndex = 0;
+            this.r_15.TabStop = true;
+            this.r_15.Text = "IVS 15%";
+            this.r_15.UseVisualStyleBackColor = true;
+            // 
+            // r_18
+            // 
+            this.r_18.AutoSize = true;
+            this.r_18.Location = new System.Drawing.Point(123, 19);
+            this.r_18.Name = "r_18";
+            this.r_18.Size = new System.Drawing.Size(65, 17);
+            this.r_18.TabIndex = 1;
+            this.r_18.Text = "IVS 18%";
+            this.r_18.UseVisualStyleBackColor = true;
+            // 
+            // dtp_fecha
+            // 
+            this.dtp_fecha.Location = new System.Drawing.Point(7, 24);
+            this.dtp_fecha.Name = "dtp_fecha";
+            this.dtp_fecha.Size = new System.Drawing.Size(199, 20);
+            this.dtp_fecha.TabIndex = 9;
+            // 
             // Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(947, 580);
+            this.ClientSize = new System.Drawing.Size(947, 634);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -686,6 +725,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -716,7 +757,6 @@
         private System.Windows.Forms.TextBox txt_codigo_p;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.DateTimePicker dtp_fechaemision;
         private System.Windows.Forms.Button bt_borrar;
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.PictureBox img_logo;
@@ -744,5 +784,9 @@
         private System.Windows.Forms.TextBox txt_monto_to;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RadioButton r_18;
+        private System.Windows.Forms.RadioButton r_15;
+        private System.Windows.Forms.DateTimePicker dtp_fecha;
     }
 }

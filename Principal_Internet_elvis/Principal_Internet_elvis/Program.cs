@@ -48,12 +48,7 @@ namespace Principal_Internet_elvis
         public static ReportesTipo reportesTipo;
         public static Servicios servicios;
         public static Seleccionar seleccionar;
-        public static Factura factura;
-
-
-
         
-
         [STAThread]
         static void Main()
         {
