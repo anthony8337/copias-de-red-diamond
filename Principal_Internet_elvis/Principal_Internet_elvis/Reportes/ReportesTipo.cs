@@ -18,88 +18,27 @@ namespace Principal_Internet_elvis.Reportes
             InitializeComponent();
         }
 
-        private void bt_mora_buscar_Click(object sender, EventArgs e)
+        public void limpiar()
         {
-            mostrarMora();
+
+            rb_barrio.Checked = true;
+            r_cli_a.Checked = true;
+            txt_cliente.Text = "";
+            cb_rango.Checked = false;
+            rb_servicio.Checked = true;
+            txt_nombre_sector.Text = "";
+
         }
 
-        private void mostrarMora()
-        { }
-
-        private void mostrarEstado()
-        { }
-
-        public void addFuente(Font f)
+        private void ReportesTipo_Resize(object sender, EventArgs e)
         {
-            foreach (Button e in Program.GetAllChildren(this).OfType<Button>())
-            {
-                e.Font = f;
-            }
-
-            foreach (GroupBox e in Program.GetAllChildren(this).OfType<GroupBox>())
-            {
-                e.Font = f;
-            }
-
-            foreach (TextBox e in Program.GetAllChildren(this).OfType<TextBox>())
-            {
-                e.Font = f;
-            }
-
-            foreach (DateTimePicker e in Program.GetAllChildren(this).OfType<DateTimePicker>())
-            {
-                e.Font = f;
-            }
+            vgb_tabla.Left = this.Width - (vgb_tabla.Width + 25);
+            vgb_tabla.Top = this.Height - (vgb_tabla.Height + 50);
         }
 
         private void ReportesTipo_Load(object sender, EventArgs e)
         {
-            gb_estado_buscar.Visible = false;
-            gb_estado.Visible = true;
-            addFuente(Program.principal.fuente);
+
         }
-
-        private void bt_estado_atras_Click(object sender, EventArgs e)
-        {
-            gb_estado_buscar.Visible = false;
-            gb_estado.Visible = true;
-        }
-
-        private void bt_estado_buscar_Click(object sender, EventArgs e)
-        {
-            gb_estado_buscar.Visible = true;
-            gb_estado.Visible = false;
-            txt_estado_buscar.Select();
-        }
-
-        private void bt_estado_imprimir_Click(object sender, EventArgs e)
-        {
-            if (txt_estado_codigo.Text.Equals(""))
-            {
-                MessageBox.Show("Seleccione un cliente.");
-                return;
-            }
-            mostrarEstado();
-        }
-
-        private void dgv_estado_tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Int32 selectedRowCount = dgv_estado_tabla.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
-            {
-                int row = dgv_estado_tabla.CurrentRow.Index;
-                int c = int.Parse(dgv_estado_tabla.Rows[row].Cells["idcliente"].Value.ToString());
-                txt_estado_codigo.Text = c.ToString("D10");
-                txt_estado_nombre.Text = dgv_estado_tabla.Rows[row].Cells["nombre"].Value.ToString();
-
-                gb_estado_buscar.Visible = false;
-                gb_estado.Visible = true;
-                dgv_estado_tabla.DataSource = null;
-                txt_estado_buscar.Text = "";
-            }
-        }
-
-        private void txt_estado_buscar_KeyDown(object sender, KeyEventArgs e)
-        { }
     }
 }

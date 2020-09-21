@@ -21,6 +21,8 @@ namespace Proyecto_dawelin
     public partial class Principal : Form
     {
 
+        
+
         public int idu;
         public string user, clave, desc, nombre;
         public Font fuente;
@@ -45,7 +47,6 @@ namespace Proyecto_dawelin
             btnCliente.Enabled = true;
             btnEstado.Enabled = true;
             btnPaquetes.Enabled = true;
-            btnFactura.Enabled = true;
             btnUbicacion.Enabled = true;
             btnReportes.Enabled = true;
             btnConfiguracion.Enabled = true;
@@ -122,6 +123,8 @@ namespace Proyecto_dawelin
         private void Form1_Load(object sender, EventArgs e)
         {
             cn.Open();
+
+            
 
             Principal p = new Principal();
 

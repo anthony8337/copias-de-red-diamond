@@ -35,7 +35,6 @@
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnEstado = new System.Windows.Forms.Button();
             this.btnPaquetes = new System.Windows.Forms.Button();
-            this.btnFactura = new System.Windows.Forms.Button();
             this.btnUbicacion = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
@@ -56,7 +55,6 @@
             this.panel_botones.Controls.Add(this.btnCliente);
             this.panel_botones.Controls.Add(this.btnEstado);
             this.panel_botones.Controls.Add(this.btnPaquetes);
-            this.panel_botones.Controls.Add(this.btnFactura);
             this.panel_botones.Controls.Add(this.btnUbicacion);
             this.panel_botones.Controls.Add(this.btnReportes);
             this.panel_botones.Controls.Add(this.btnConfiguracion);
@@ -64,7 +62,7 @@
             this.panel_botones.Location = new System.Drawing.Point(13, 12);
             this.panel_botones.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel_botones.Name = "panel_botones";
-            this.panel_botones.Size = new System.Drawing.Size(273, 675);
+            this.panel_botones.Size = new System.Drawing.Size(273, 600);
             this.panel_botones.TabIndex = 1;
             // 
             // btnPago
@@ -109,7 +107,7 @@
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(261, 69);
             this.btnEstado.TabIndex = 3;
-            this.btnEstado.Text = "ESTADOS CLIENTES";
+            this.btnEstado.Text = "ESTADOS";
             this.btnEstado.UseVisualStyleBackColor = false;
             this.btnEstado.Click += new System.EventHandler(this.bt_estado_Click);
             // 
@@ -128,28 +126,13 @@
             this.btnPaquetes.UseVisualStyleBackColor = false;
             this.btnPaquetes.Click += new System.EventHandler(this.btnPaquetes_Click);
             // 
-            // btnFactura
-            // 
-            this.btnFactura.BackColor = System.Drawing.Color.White;
-            this.btnFactura.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFactura.Image = global::Principal_Internet_elvis.Properties.Resources._7;
-            this.btnFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFactura.Location = new System.Drawing.Point(4, 303);
-            this.btnFactura.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(261, 69);
-            this.btnFactura.TabIndex = 3;
-            this.btnFactura.Text = "FACTURAS";
-            this.btnFactura.UseVisualStyleBackColor = false;
-            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
-            // 
             // btnUbicacion
             // 
             this.btnUbicacion.BackColor = System.Drawing.Color.White;
             this.btnUbicacion.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUbicacion.Image = global::Principal_Internet_elvis.Properties.Resources._3;
             this.btnUbicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUbicacion.Location = new System.Drawing.Point(4, 378);
+            this.btnUbicacion.Location = new System.Drawing.Point(4, 303);
             this.btnUbicacion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnUbicacion.Name = "btnUbicacion";
             this.btnUbicacion.Size = new System.Drawing.Size(261, 69);
@@ -164,7 +147,7 @@
             this.btnReportes.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.Image = global::Principal_Internet_elvis.Properties.Resources._5;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(4, 453);
+            this.btnReportes.Location = new System.Drawing.Point(4, 378);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(261, 69);
@@ -179,7 +162,7 @@
             this.btnConfiguracion.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracion.Image = global::Principal_Internet_elvis.Properties.Resources._2;
             this.btnConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracion.Location = new System.Drawing.Point(4, 528);
+            this.btnConfiguracion.Location = new System.Drawing.Point(4, 453);
             this.btnConfiguracion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Size = new System.Drawing.Size(261, 69);
@@ -195,7 +178,7 @@
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
             this.btnSalir.Image = global::Principal_Internet_elvis.Properties.Resources._8;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(4, 603);
+            this.btnSalir.Location = new System.Drawing.Point(4, 528);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(261, 68);
@@ -291,7 +274,6 @@
         private System.Windows.Forms.Button btnPago;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Button btnPaquetes;
-        private System.Windows.Forms.Button btnFactura;
         private System.Windows.Forms.Button btnUbicacion;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnConfiguracion;
