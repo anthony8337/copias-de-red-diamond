@@ -35,6 +35,7 @@ namespace Principal_Internet_elvis.Ubicacion
             nombre = dgv_tabla.CurrentRow.Cells[1].Value.ToString();
 
             UbicacionAgregar.sector = nombre;
+            Reportes.ReportesTipo.sector = nombre;
                 
             this.Close();
         }

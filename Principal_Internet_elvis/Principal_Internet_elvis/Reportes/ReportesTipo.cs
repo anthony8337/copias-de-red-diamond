@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Principal_Internet_elvis.Reportes
 {
@@ -18,7 +19,7 @@ namespace Principal_Internet_elvis.Reportes
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
         SqlCommand cm;
 
-        public static string nombre;
+        public static string nombre, sector;
 
         public void tabla_clientes()
         {
@@ -178,7 +179,7 @@ namespace Principal_Internet_elvis.Reportes
 
             try
             {
-                cm = new SqlCommand("Select * from V_colonia", cn);
+                cm = new SqlCommand("Select * from V_colonia WHERE sector LIKE '%" + txt_nombre_sector.Text + "%'", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();
@@ -197,7 +198,7 @@ namespace Principal_Internet_elvis.Reportes
 
             try
             {
-                cm = new SqlCommand("Select * from V_barrio", cn);
+                cm = new SqlCommand("Select * from V_barrio WHERE sector LIKE '%"+ txt_nombre_sector.Text+ "%'", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();
@@ -246,7 +247,8 @@ namespace Principal_Internet_elvis.Reportes
             rb_servicio.Checked = true;
             txt_nombre_sector.Text = "";
             nombre = "";
-            
+            sector = "";
+
         }
 
         private void ReportesTipo_Resize(object sender, EventArgs e)
@@ -257,6 +259,7 @@ namespace Principal_Internet_elvis.Reportes
 
         private void ReportesTipo_Load(object sender, EventArgs e)
         {
+            limpiar();
             d_h.Enabled = false;
         }
 
@@ -350,6 +353,27 @@ namespace Principal_Internet_elvis.Reportes
         private void ReportesTipo_Activated(object sender, EventArgs e)
         {
             txt_cliente.Text = nombre;
+            txt_nombre_sector.Text = sector;
+        }
+
+        private void btn_imp_c_Click(object sender, EventArgs e)
+        {
+            Process.Start("C:\\no tocar\\reporte de los clientes.pbix");
+        }
+
+        private void btn_im_f_Click(object sender, EventArgs e)
+        {
+            Process.Start("C:\\no tocar\\reporte de factura.pbix");
+        }
+
+        private void btn_selecciona_Click(object sender, EventArgs e)
+        {
+            Program.ubicacionElegir = new Ubicacion.UbicacionElegir();
+            Program.ubicacionElegir.Show();
+            Program.ubicacionElegir.TopMost = true;
+            Program.ubicacionElegir.Focus();
+            Program.ubicacionElegir.BringToFront();
+            Program.ubicacionElegir.Text = "SELECCIONAR SECTOR PARA BUSQUEDA";
         }
     }
 }

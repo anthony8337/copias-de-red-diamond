@@ -89,6 +89,7 @@
             this.btn_imp_c.Text = "IMPRIMIR";
             this.btn_imp_c.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_imp_c.UseVisualStyleBackColor = true;
+            this.btn_imp_c.Click += new System.EventHandler(this.btn_imp_c_Click);
             // 
             // groupBox1
             // 
@@ -260,6 +261,7 @@
             this.btn_im_f.Text = "IMPRIMIR";
             this.btn_im_f.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_im_f.UseVisualStyleBackColor = true;
+            this.btn_im_f.Click += new System.EventHandler(this.btn_im_f_Click);
             // 
             // vgb_tabla
             // 
@@ -375,6 +377,7 @@
             this.btn_selecciona.TabIndex = 7;
             this.btn_selecciona.Text = "SELECCIONAR SECTOR";
             this.btn_selecciona.UseVisualStyleBackColor = true;
+            this.btn_selecciona.Click += new System.EventHandler(this.btn_selecciona_Click);
             // 
             // txt_nombre_sector
             // 
