@@ -22,20 +22,54 @@ namespace Principal_Internet_elvis.Reportes
 
         public void tabla_clientes()
         {
-            try
+            if (r_cli_a.Checked)
             {
-                cm = new SqlCommand("SELECT * FROM V_clientes_imprime", cn);
-                SqlDataAdapter adp = new SqlDataAdapter();
-                adp.SelectCommand = cm;
-                DataTable tabla = new DataTable();
-                adp.Fill(tabla);
-                vgb_tabla.DataSource = tabla;
-            }
-            catch (Exception e)
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_clientes_imprime WHERE estado = 'SERVICIO ACTIVO'", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+            } 
+            else if (r_cli_d.Checked)
             {
-                MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_clientes_imprime WHERE estado = 'PENDIENTE INSTALACION'", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
             }
-
+            else if (r_cli_e.Checked)
+            {
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_clientes_imprime", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se realizo la conecxion correctamente: " + e.ToString());
+                }
+            }
         }
 
         public void tabla_factura()
