@@ -227,9 +227,11 @@
             this.btn_bu_cli.TabIndex = 5;
             this.btn_bu_cli.Text = "BUSCAR CLIENTES";
             this.btn_bu_cli.UseVisualStyleBackColor = true;
+            this.btn_bu_cli.Click += new System.EventHandler(this.btn_bu_cli_Click);
             // 
             // txt_cliente
             // 
+            this.txt_cliente.Enabled = false;
             this.txt_cliente.Location = new System.Drawing.Point(6, 19);
             this.txt_cliente.Name = "txt_cliente";
             this.txt_cliente.Size = new System.Drawing.Size(289, 20);
@@ -376,6 +378,7 @@
             // 
             // txt_nombre_sector
             // 
+            this.txt_nombre_sector.Enabled = false;
             this.txt_nombre_sector.Location = new System.Drawing.Point(6, 48);
             this.txt_nombre_sector.Name = "txt_nombre_sector";
             this.txt_nombre_sector.Size = new System.Drawing.Size(340, 20);
@@ -509,6 +512,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportesTipo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.ReportesTipo_Activated);
             this.Load += new System.EventHandler(this.ReportesTipo_Load);
             this.Resize += new System.EventHandler(this.ReportesTipo_Resize);
             this.groupBox1.ResumeLayout(false);

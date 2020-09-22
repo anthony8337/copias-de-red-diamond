@@ -122,6 +122,12 @@
     <Compile Include="Pagos\Pago.Designer.cs">
       <DependentUpon>Pago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pagos\Sele_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos\Sele_Cliente.Designer.cs">
+      <DependentUpon>Sele_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paquetes\PaquetesAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pagos\Pago.resx">
       <DependentUpon>Pago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\Sele_Cliente.resx">
+      <DependentUpon>Sele_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Paquetes\PaquetesAgregar.resx">
       <DependentUpon>PaquetesAgregar.cs</DependentUpon>

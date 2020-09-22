@@ -47,6 +47,7 @@ namespace Principal_Internet_elvis
         public static ReportesTipo reportesTipo;
         public static Servicios servicios;
         public static Seleccionar seleccionar;
+        public static Sele_Cliente sele_Cliente;
         
         [STAThread]
         static void Main()

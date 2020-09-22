@@ -18,6 +18,8 @@ namespace Principal_Internet_elvis.Reportes
         SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=proyecto;Integrated Security=True");
         SqlCommand cm;
 
+        public static string nombre;
+
         public void tabla_clientes()
         {
             try
@@ -38,17 +40,64 @@ namespace Principal_Internet_elvis.Reportes
 
         public void tabla_factura()
         {
-            try
+            if (nombre != "" && cb_rango.Checked == false)
             {
-                cm = new SqlCommand("SELECT * FROM V_factura", cn);
-                SqlDataAdapter adp = new SqlDataAdapter();
-                adp.SelectCommand = cm;
-                DataTable tabla = new DataTable();
-                adp.Fill(tabla);
-                vgb_tabla.DataSource = tabla;
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_factura WHERE nombre LIKE '%" + txt_cliente.Text + "%'", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception ex)
+                { }
             }
-            catch (Exception ex)
-            { }
+            else if (nombre == "" && cb_rango.Checked == false)
+            {
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_factura", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception ex)
+                { }
+            }
+            else if (nombre == "" && cb_rango.Checked == true)
+            {
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_factura WHERE nombre LIKE '%" + txt_cliente.Text + "%' AND fecha BETWEEN '" + dtp_desde.Value.ToShortDateString() + "' AND '" + dtp_hasta.Value.ToShortDateString() + "'", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception ex)
+                { }
+            } else if (nombre != "" && cb_rango.Checked == true)
+            {
+                try
+                {
+                    cm = new SqlCommand("SELECT * FROM V_factura WHERE fecha BETWEEN '" + dtp_desde.Value.ToShortDateString() + "' AND '" + dtp_hasta.Value.ToShortDateString() + "'", cn);
+                    SqlDataAdapter adp = new SqlDataAdapter();
+                    adp.SelectCommand = cm;
+                    DataTable tabla = new DataTable();
+                    adp.Fill(tabla);
+                    vgb_tabla.DataSource = tabla;
+                }
+                catch (Exception ex)
+                { }
+            }
+
+            
+
         }
 
         public void tabla_servicios()
@@ -162,6 +211,7 @@ namespace Principal_Internet_elvis.Reportes
             cb_rango.Checked = false;
             rb_servicio.Checked = true;
             txt_nombre_sector.Text = "";
+            nombre = "";
             
         }
 
@@ -251,6 +301,21 @@ namespace Principal_Internet_elvis.Reportes
                 vgb_tabla.Columns.Clear();
                 tablaSector();
             }
+        }
+
+        private void btn_bu_cli_Click(object sender, EventArgs e)
+        {
+            Program.sele_Cliente = new Pagos.Sele_Cliente();
+            Program.sele_Cliente.Show();
+            Program.sele_Cliente.TopMost = true;
+            Program.sele_Cliente.Focus();
+            Program.sele_Cliente.BringToFront();
+
+        }
+
+        private void ReportesTipo_Activated(object sender, EventArgs e)
+        {
+            txt_cliente.Text = nombre;
         }
     }
 }

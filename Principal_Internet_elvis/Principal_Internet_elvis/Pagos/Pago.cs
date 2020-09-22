@@ -149,6 +149,7 @@ namespace Principal_Internet_elvis.Pagos
             gb_cliente.Visible = true;
             gBusCliente.Visible = false;
             buscar_p();
+            tabla_factura();
 
         }
 
@@ -178,6 +179,7 @@ namespace Principal_Internet_elvis.Pagos
 
             gb_paquete.Visible = true;
             gBusConcep.Visible = false;
+            tabla_factura();
 
         }
 

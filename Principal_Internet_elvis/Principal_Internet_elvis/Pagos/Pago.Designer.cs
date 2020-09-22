@@ -54,6 +54,7 @@
             this.txt_codigo_p = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dgv_detalles = new System.Windows.Forms.DataGridView();
             this.txt_totalpagar = new System.Windows.Forms.TextBox();
@@ -79,9 +80,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.r_15 = new System.Windows.Forms.RadioButton();
             this.r_18 = new System.Windows.Forms.RadioButton();
-            this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
+            this.r_15 = new System.Windows.Forms.RadioButton();
             this.gb_cliente.SuspendLayout();
             this.gBusConcep.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla_p)).BeginInit();
@@ -372,6 +372,13 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "FECHA DE EMICION";
             // 
+            // dtp_fecha
+            // 
+            this.dtp_fecha.Location = new System.Drawing.Point(7, 24);
+            this.dtp_fecha.Name = "dtp_fecha";
+            this.dtp_fecha.Size = new System.Drawing.Size(199, 20);
+            this.dtp_fecha.TabIndex = 9;
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dgv_detalles);
@@ -640,6 +647,16 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "IVS";
             // 
+            // r_18
+            // 
+            this.r_18.AutoSize = true;
+            this.r_18.Location = new System.Drawing.Point(123, 19);
+            this.r_18.Name = "r_18";
+            this.r_18.Size = new System.Drawing.Size(65, 17);
+            this.r_18.TabIndex = 1;
+            this.r_18.Text = "IVS 18%";
+            this.r_18.UseVisualStyleBackColor = true;
+            // 
             // r_15
             // 
             this.r_15.AutoSize = true;
@@ -651,23 +668,6 @@
             this.r_15.TabStop = true;
             this.r_15.Text = "IVS 15%";
             this.r_15.UseVisualStyleBackColor = true;
-            // 
-            // r_18
-            // 
-            this.r_18.AutoSize = true;
-            this.r_18.Location = new System.Drawing.Point(123, 19);
-            this.r_18.Name = "r_18";
-            this.r_18.Size = new System.Drawing.Size(65, 17);
-            this.r_18.TabIndex = 1;
-            this.r_18.Text = "IVS 18%";
-            this.r_18.UseVisualStyleBackColor = true;
-            // 
-            // dtp_fecha
-            // 
-            this.dtp_fecha.Location = new System.Drawing.Point(7, 24);
-            this.dtp_fecha.Name = "dtp_fecha";
-            this.dtp_fecha.Size = new System.Drawing.Size(199, 20);
-            this.dtp_fecha.TabIndex = 9;
             // 
             // Pago
             // 
@@ -689,11 +689,11 @@
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.img_logo);
             this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gb_cliente);
             this.Controls.Add(this.gBusCliente);
             this.Controls.Add(this.gb_paquete);
             this.Controls.Add(this.gBusConcep);
-            this.Controls.Add(this.groupBox5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Pago";
