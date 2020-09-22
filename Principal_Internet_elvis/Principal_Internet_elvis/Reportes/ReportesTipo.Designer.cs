@@ -30,20 +30,21 @@
         {
             this.btn_imp_c = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.r_cli_e = new System.Windows.Forms.RadioButton();
             this.r_cli_d = new System.Windows.Forms.RadioButton();
             this.r_cli_a = new System.Windows.Forms.RadioButton();
             this.btn_b_c = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_rango = new System.Windows.Forms.CheckBox();
+            this.d_h = new System.Windows.Forms.GroupBox();
+            this.dtp_hasta = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtp_desde = new System.Windows.Forms.DateTimePicker();
+            this.btn_bu_cli = new System.Windows.Forms.Button();
+            this.txt_cliente = new System.Windows.Forms.TextBox();
             this.btn_f_c = new System.Windows.Forms.Button();
             this.btn_im_f = new System.Windows.Forms.Button();
-            this.txt_cliente = new System.Windows.Forms.TextBox();
-            this.btn_bu_cli = new System.Windows.Forms.Button();
-            this.dtp_desde = new System.Windows.Forms.DateTimePicker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtp_hasta = new System.Windows.Forms.DateTimePicker();
-            this.cb_rango = new System.Windows.Forms.CheckBox();
             this.vgb_tabla = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -52,15 +53,14 @@
             this.btn_ver_paquete = new System.Windows.Forms.Button();
             this.btn_imprimir_paquete = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btn_selecciona = new System.Windows.Forms.Button();
+            this.txt_nombre_sector = new System.Windows.Forms.TextBox();
+            this.rb_sectores = new System.Windows.Forms.RadioButton();
             this.rb_colonias = new System.Windows.Forms.RadioButton();
             this.rb_barrio = new System.Windows.Forms.RadioButton();
             this.btn_ver_lugares = new System.Windows.Forms.Button();
             this.btn_imprimir_sector = new System.Windows.Forms.Button();
-            this.r_cli_e = new System.Windows.Forms.RadioButton();
-            this.rb_sectores = new System.Windows.Forms.RadioButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txt_nombre_sector = new System.Windows.Forms.TextBox();
-            this.btn_selecciona = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -68,7 +68,7 @@
             this.btn_restableser = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.d_h.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vgb_tabla)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -104,6 +104,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "REPORTE DE ESTADOS DE LOS CLIENTES";
             // 
+            // r_cli_e
+            // 
+            this.r_cli_e.AutoSize = true;
+            this.r_cli_e.Location = new System.Drawing.Point(195, 24);
+            this.r_cli_e.Name = "r_cli_e";
+            this.r_cli_e.Size = new System.Drawing.Size(141, 17);
+            this.r_cli_e.TabIndex = 4;
+            this.r_cli_e.Text = "TODOS LOS ESTADOS";
+            this.r_cli_e.UseVisualStyleBackColor = true;
+            // 
             // r_cli_d
             // 
             this.r_cli_d.AutoSize = true;
@@ -136,11 +146,12 @@
             this.btn_b_c.TabIndex = 1;
             this.btn_b_c.Text = "VER";
             this.btn_b_c.UseVisualStyleBackColor = true;
+            this.btn_b_c.Click += new System.EventHandler(this.btn_b_c_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cb_rango);
-            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.d_h);
             this.groupBox2.Controls.Add(this.btn_bu_cli);
             this.groupBox2.Controls.Add(this.txt_cliente);
             this.groupBox2.Controls.Add(this.btn_f_c);
@@ -152,6 +163,78 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "FACTURAS DE LOS CLIENTES";
             // 
+            // cb_rango
+            // 
+            this.cb_rango.AutoSize = true;
+            this.cb_rango.Location = new System.Drawing.Point(5, 74);
+            this.cb_rango.Name = "cb_rango";
+            this.cb_rango.Size = new System.Drawing.Size(128, 17);
+            this.cb_rango.TabIndex = 5;
+            this.cb_rango.Text = "RANGO DE FECHAS";
+            this.cb_rango.UseVisualStyleBackColor = true;
+            this.cb_rango.CheckedChanged += new System.EventHandler(this.cb_rango_CheckedChanged);
+            // 
+            // d_h
+            // 
+            this.d_h.Controls.Add(this.dtp_hasta);
+            this.d_h.Controls.Add(this.label2);
+            this.d_h.Controls.Add(this.label1);
+            this.d_h.Controls.Add(this.dtp_desde);
+            this.d_h.Location = new System.Drawing.Point(6, 97);
+            this.d_h.Name = "d_h";
+            this.d_h.Size = new System.Drawing.Size(211, 113);
+            this.d_h.TabIndex = 6;
+            this.d_h.TabStop = false;
+            this.d_h.Text = "DESDE-HASTA";
+            // 
+            // dtp_hasta
+            // 
+            this.dtp_hasta.Location = new System.Drawing.Point(6, 75);
+            this.dtp_hasta.Name = "dtp_hasta";
+            this.dtp_hasta.Size = new System.Drawing.Size(200, 20);
+            this.dtp_hasta.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "HASTA";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "DESDE";
+            // 
+            // dtp_desde
+            // 
+            this.dtp_desde.Location = new System.Drawing.Point(6, 36);
+            this.dtp_desde.Name = "dtp_desde";
+            this.dtp_desde.Size = new System.Drawing.Size(200, 20);
+            this.dtp_desde.TabIndex = 5;
+            // 
+            // btn_bu_cli
+            // 
+            this.btn_bu_cli.Location = new System.Drawing.Point(6, 45);
+            this.btn_bu_cli.Name = "btn_bu_cli";
+            this.btn_bu_cli.Size = new System.Drawing.Size(127, 23);
+            this.btn_bu_cli.TabIndex = 5;
+            this.btn_bu_cli.Text = "BUSCAR CLIENTES";
+            this.btn_bu_cli.UseVisualStyleBackColor = true;
+            // 
+            // txt_cliente
+            // 
+            this.txt_cliente.Location = new System.Drawing.Point(6, 19);
+            this.txt_cliente.Name = "txt_cliente";
+            this.txt_cliente.Size = new System.Drawing.Size(289, 20);
+            this.txt_cliente.TabIndex = 2;
+            // 
             // btn_f_c
             // 
             this.btn_f_c.Image = global::Principal_Internet_elvis.Properties.Resources.lupa_chiquito;
@@ -162,6 +245,7 @@
             this.btn_f_c.TabIndex = 1;
             this.btn_f_c.Text = "VER";
             this.btn_f_c.UseVisualStyleBackColor = true;
+            this.btn_f_c.Click += new System.EventHandler(this.btn_f_c_Click);
             // 
             // btn_im_f
             // 
@@ -175,82 +259,15 @@
             this.btn_im_f.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_im_f.UseVisualStyleBackColor = true;
             // 
-            // txt_cliente
-            // 
-            this.txt_cliente.Location = new System.Drawing.Point(6, 19);
-            this.txt_cliente.Name = "txt_cliente";
-            this.txt_cliente.Size = new System.Drawing.Size(289, 20);
-            this.txt_cliente.TabIndex = 2;
-            // 
-            // btn_bu_cli
-            // 
-            this.btn_bu_cli.Location = new System.Drawing.Point(6, 45);
-            this.btn_bu_cli.Name = "btn_bu_cli";
-            this.btn_bu_cli.Size = new System.Drawing.Size(127, 23);
-            this.btn_bu_cli.TabIndex = 5;
-            this.btn_bu_cli.Text = "BUSCAR CLIENTES";
-            this.btn_bu_cli.UseVisualStyleBackColor = true;
-            // 
-            // dtp_desde
-            // 
-            this.dtp_desde.Location = new System.Drawing.Point(6, 36);
-            this.dtp_desde.Name = "dtp_desde";
-            this.dtp_desde.Size = new System.Drawing.Size(200, 20);
-            this.dtp_desde.TabIndex = 5;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dtp_hasta);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.dtp_desde);
-            this.groupBox3.Location = new System.Drawing.Point(6, 97);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(211, 113);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "DESDE-HASTA";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "DESDE";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "HASTA";
-            // 
-            // dtp_hasta
-            // 
-            this.dtp_hasta.Location = new System.Drawing.Point(6, 75);
-            this.dtp_hasta.Name = "dtp_hasta";
-            this.dtp_hasta.Size = new System.Drawing.Size(200, 20);
-            this.dtp_hasta.TabIndex = 8;
-            // 
-            // cb_rango
-            // 
-            this.cb_rango.AutoSize = true;
-            this.cb_rango.Location = new System.Drawing.Point(5, 74);
-            this.cb_rango.Name = "cb_rango";
-            this.cb_rango.Size = new System.Drawing.Size(128, 17);
-            this.cb_rango.TabIndex = 5;
-            this.cb_rango.Text = "RANGO DE FECHAS";
-            this.cb_rango.UseVisualStyleBackColor = true;
-            // 
             // vgb_tabla
             // 
+            this.vgb_tabla.AllowUserToAddRows = false;
+            this.vgb_tabla.AllowUserToDeleteRows = false;
+            this.vgb_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.vgb_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vgb_tabla.Location = new System.Drawing.Point(221, 59);
             this.vgb_tabla.Name = "vgb_tabla";
+            this.vgb_tabla.ReadOnly = true;
             this.vgb_tabla.Size = new System.Drawing.Size(902, 657);
             this.vgb_tabla.TabIndex = 5;
             // 
@@ -308,6 +325,7 @@
             this.btn_ver_paquete.TabIndex = 1;
             this.btn_ver_paquete.Text = "VER";
             this.btn_ver_paquete.UseVisualStyleBackColor = true;
+            this.btn_ver_paquete.Click += new System.EventHandler(this.btn_ver_paquete_Click);
             // 
             // btn_imprimir_paquete
             // 
@@ -335,6 +353,44 @@
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "REPORTE DE LOS LUGARES";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btn_selecciona);
+            this.groupBox6.Controls.Add(this.txt_nombre_sector);
+            this.groupBox6.Location = new System.Drawing.Point(6, 47);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(352, 87);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "BUSCAR POR SECTORES";
+            // 
+            // btn_selecciona
+            // 
+            this.btn_selecciona.Location = new System.Drawing.Point(6, 19);
+            this.btn_selecciona.Name = "btn_selecciona";
+            this.btn_selecciona.Size = new System.Drawing.Size(157, 23);
+            this.btn_selecciona.TabIndex = 7;
+            this.btn_selecciona.Text = "SELECCIONAR SECTOR";
+            this.btn_selecciona.UseVisualStyleBackColor = true;
+            // 
+            // txt_nombre_sector
+            // 
+            this.txt_nombre_sector.Location = new System.Drawing.Point(6, 48);
+            this.txt_nombre_sector.Name = "txt_nombre_sector";
+            this.txt_nombre_sector.Size = new System.Drawing.Size(340, 20);
+            this.txt_nombre_sector.TabIndex = 7;
+            // 
+            // rb_sectores
+            // 
+            this.rb_sectores.AutoSize = true;
+            this.rb_sectores.Location = new System.Drawing.Point(275, 24);
+            this.rb_sectores.Name = "rb_sectores";
+            this.rb_sectores.Size = new System.Drawing.Size(83, 17);
+            this.rb_sectores.TabIndex = 4;
+            this.rb_sectores.Text = "SECTORES";
+            this.rb_sectores.UseVisualStyleBackColor = true;
+            this.rb_sectores.CheckedChanged += new System.EventHandler(this.rb_sectores_CheckedChanged);
             // 
             // rb_colonias
             // 
@@ -368,6 +424,7 @@
             this.btn_ver_lugares.TabIndex = 1;
             this.btn_ver_lugares.Text = "VER";
             this.btn_ver_lugares.UseVisualStyleBackColor = true;
+            this.btn_ver_lugares.Click += new System.EventHandler(this.btn_ver_lugares_Click);
             // 
             // btn_imprimir_sector
             // 
@@ -380,53 +437,6 @@
             this.btn_imprimir_sector.Text = "IMPRIMIR";
             this.btn_imprimir_sector.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_imprimir_sector.UseVisualStyleBackColor = true;
-            // 
-            // r_cli_e
-            // 
-            this.r_cli_e.AutoSize = true;
-            this.r_cli_e.Location = new System.Drawing.Point(195, 24);
-            this.r_cli_e.Name = "r_cli_e";
-            this.r_cli_e.Size = new System.Drawing.Size(141, 17);
-            this.r_cli_e.TabIndex = 4;
-            this.r_cli_e.Text = "TODOS LOS ESTADOS";
-            this.r_cli_e.UseVisualStyleBackColor = true;
-            // 
-            // rb_sectores
-            // 
-            this.rb_sectores.AutoSize = true;
-            this.rb_sectores.Location = new System.Drawing.Point(275, 24);
-            this.rb_sectores.Name = "rb_sectores";
-            this.rb_sectores.Size = new System.Drawing.Size(83, 17);
-            this.rb_sectores.TabIndex = 4;
-            this.rb_sectores.Text = "SECTORES";
-            this.rb_sectores.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btn_selecciona);
-            this.groupBox6.Controls.Add(this.txt_nombre_sector);
-            this.groupBox6.Location = new System.Drawing.Point(6, 47);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(352, 87);
-            this.groupBox6.TabIndex = 7;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "BUSCAR POR SECTORES";
-            // 
-            // txt_nombre_sector
-            // 
-            this.txt_nombre_sector.Location = new System.Drawing.Point(6, 48);
-            this.txt_nombre_sector.Name = "txt_nombre_sector";
-            this.txt_nombre_sector.Size = new System.Drawing.Size(340, 20);
-            this.txt_nombre_sector.TabIndex = 7;
-            // 
-            // btn_selecciona
-            // 
-            this.btn_selecciona.Location = new System.Drawing.Point(6, 19);
-            this.btn_selecciona.Name = "btn_selecciona";
-            this.btn_selecciona.Size = new System.Drawing.Size(157, 23);
-            this.btn_selecciona.TabIndex = 7;
-            this.btn_selecciona.Text = "SELECCIONAR SECTOR";
-            this.btn_selecciona.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -472,16 +482,18 @@
             this.btn_salir.TabIndex = 8;
             this.btn_salir.Text = "SALIR";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_restableser
             // 
             this.btn_restableser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_restableser.Location = new System.Drawing.Point(286, 476);
+            this.btn_restableser.Location = new System.Drawing.Point(282, 476);
             this.btn_restableser.Name = "btn_restableser";
             this.btn_restableser.Size = new System.Drawing.Size(168, 65);
             this.btn_restableser.TabIndex = 9;
-            this.btn_restableser.Text = "RESTABLESER";
+            this.btn_restableser.Text = "LIMPIAR";
             this.btn_restableser.UseVisualStyleBackColor = true;
+            this.btn_restableser.Click += new System.EventHandler(this.btn_restableser_Click);
             // 
             // ReportesTipo
             // 
@@ -503,8 +515,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.d_h.ResumeLayout(false);
+            this.d_h.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vgb_tabla)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -529,7 +541,7 @@
         private System.Windows.Forms.Button btn_b_c;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox cb_rango;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox d_h;
         private System.Windows.Forms.DateTimePicker dtp_hasta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

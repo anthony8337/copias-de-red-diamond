@@ -59,12 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buscar_factura\Bus_factura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Buscar_factura\Bus_factura.Designer.cs">
-      <DependentUpon>Bus_factura.cs</DependentUpon>
-    </Compile>
     <Compile Include="Capsula.cs" />
     <Compile Include="ClientesCarpeta\Clientes.cs">
       <SubType>Form</SubType>
@@ -207,9 +201,6 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Buscar_factura\Bus_factura.resx">
-      <DependentUpon>Bus_factura.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ClientesCarpeta\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,7 +354,9 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Buscar_factura\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo del proyecto.png" />
   </ItemGroup>

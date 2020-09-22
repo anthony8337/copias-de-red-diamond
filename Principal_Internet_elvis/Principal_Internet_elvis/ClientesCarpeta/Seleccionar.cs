@@ -98,7 +98,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         private void button1_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show(Clientes.tipo);
+            
             
             
 

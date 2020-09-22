@@ -90,14 +90,7 @@ namespace Proyecto_dawelin
             Program.reportesTipo.Text = "REPORTES";
         }
 
-        private void btnFactura_Click(object sender, EventArgs e)
-        {
-            Program.bus_Factura = new Bus_factura();
-            Program.bus_Factura.Show();
-            Program.bus_Factura.Focus();
-            Program.bus_Factura.BringToFront();
-            Program.bus_Factura.Text = "BUSQUEDA-FACTURAS";
-        }
+        
 
         private void dgv_pendientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -208,7 +201,7 @@ namespace Proyecto_dawelin
         {
             try
             {
-                cm = new SqlCommand("Select * from Cliente WHERE estado = 'PENDIENTE INSTALACION'", cn);
+                cm = new SqlCommand("Select * from V_clientes_imprime WHERE estado = 'PENDIENTE INSTALACION'", cn);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 adp.SelectCommand = cm;
                 DataTable tabla = new DataTable();

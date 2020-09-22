@@ -102,7 +102,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         {
             try
             {
-                    cm = new SqlCommand("Select* from Cliente", cn);
+                    cm = new SqlCommand("SELECT * FROM V_clientes_imprime", cn);
                     SqlDataAdapter adp = new SqlDataAdapter();
                     adp.SelectCommand = cm;
                     DataTable tabla = new DataTable();

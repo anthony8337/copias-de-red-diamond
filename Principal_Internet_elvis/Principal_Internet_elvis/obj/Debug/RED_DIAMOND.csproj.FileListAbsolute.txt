@@ -72,7 +72,6 @@ C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\bin\Debug\stdole.dll
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\RED_DIAMOND.csprojAssemblyReference.cache
-C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.Bus_factura.resources
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.ClientesCarpeta.Clientes.resources
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.ClientesCarpeta.ClientesPaquetes.resources
 C:\Users\Anthony Oliva\Source\Repos\anthony8337\copias-de-red-diamond\Principal_Internet_elvis\Principal_Internet_elvis\obj\Debug\Principal_Internet_elvis.Configuraciones.ConfiguracionLogo.resources
