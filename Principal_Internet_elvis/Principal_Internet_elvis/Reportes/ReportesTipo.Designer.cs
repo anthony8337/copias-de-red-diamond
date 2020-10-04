@@ -342,6 +342,7 @@
             this.btn_imprimir_paquete.Text = "IMPRIMIR";
             this.btn_imprimir_paquete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_imprimir_paquete.UseVisualStyleBackColor = true;
+            this.btn_imprimir_paquete.Click += new System.EventHandler(this.btn_imprimir_paquete_Click);
             // 
             // groupBox5
             // 
@@ -443,6 +444,7 @@
             this.btn_imprimir_sector.Text = "IMPRIMIR";
             this.btn_imprimir_sector.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_imprimir_sector.UseVisualStyleBackColor = true;
+            this.btn_imprimir_sector.Click += new System.EventHandler(this.btn_imprimir_sector_Click);
             // 
             // tabControl1
             // 

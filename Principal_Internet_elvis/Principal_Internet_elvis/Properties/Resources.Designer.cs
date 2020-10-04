@@ -273,6 +273,16 @@ namespace Principal_Internet_elvis.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_del_programa {
+            get {
+                object obj = ResourceManager.GetObject("Logo_del_programa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_del_proyecto {
             get {
                 object obj = ResourceManager.GetObject("Logo_del_proyecto", resourceCulture);

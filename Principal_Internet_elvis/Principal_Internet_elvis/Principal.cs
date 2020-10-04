@@ -160,6 +160,7 @@ namespace Proyecto_dawelin
             bt_actualizar.Left = this.Width - (bt_actualizar.Width + 25);
             dgv_tabla.Left = this.Width - (dgv_tabla.Width + 25);
             dgv_tabla.Top = this.Height - (dgv_tabla.Height + 50);
+            
         }
 
         private void btnUbicacion_Click(object sender, EventArgs e)

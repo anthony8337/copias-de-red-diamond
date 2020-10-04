@@ -72,6 +72,7 @@ namespace Principal_Internet_elvis.ClientesCarpeta
         
         private void Clientes_Load(object sender, EventArgs e)
         {
+            //pepito
             limpiar();
             cargar_inicio();
 

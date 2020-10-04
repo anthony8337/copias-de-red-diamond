@@ -366,6 +366,28 @@ namespace Principal_Internet_elvis.Reportes
             Process.Start("C:\\no tocar\\reporte de factura.pbix");
         }
 
+        private void btn_imprimir_paquete_Click(object sender, EventArgs e)
+        {
+            if (rb_paquete.Checked)
+            {
+                Process.Start("C:\\no tocar\\reporte de los paquetes.pbix");
+            }
+            else if(rb_servicio.Checked)
+            {
+                Process.Start("C:\\no tocar\\reporte de los servicios.pbix");
+            }
+        }
+
+        private void btn_imprimir_sector_Click(object sender, EventArgs e)
+        {
+            if (rb_barrio.Checked)
+            { Process.Start("C:\\no tocar\\reporte de los barrios.pbix"); }
+            else if (rb_colonias.Checked)
+            { Process.Start("C:\\no tocar\\reporte de las colonias.pbix"); }
+            else if (rb_sectores.Checked)
+            { Process.Start("C:\\no tocar\\reporte de los sectores.pbix"); }
+        }
+
         private void btn_selecciona_Click(object sender, EventArgs e)
         {
             Program.ubicacionElegir = new Ubicacion.UbicacionElegir();

@@ -39,13 +39,13 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.img_logo = new System.Windows.Forms.PictureBox();
             this.dgv_tabla = new System.Windows.Forms.DataGridView();
             this.lb_pendiente = new System.Windows.Forms.Label();
             this.bt_actualizar = new System.Windows.Forms.Button();
+            this.img_logo = new System.Windows.Forms.PictureBox();
             this.panel_botones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_botones
@@ -99,6 +99,7 @@
             // btnEstado
             // 
             this.btnEstado.BackColor = System.Drawing.Color.White;
+            this.btnEstado.Enabled = false;
             this.btnEstado.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstado.Image = global::Principal_Internet_elvis.Properties.Resources._9;
             this.btnEstado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,17 +188,6 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // img_logo
-            // 
-            this.img_logo.BackColor = System.Drawing.Color.SlateGray;
-            this.img_logo.Image = global::Principal_Internet_elvis.Properties.Resources.Logo_del_proyecto;
-            this.img_logo.Location = new System.Drawing.Point(542, 21);
-            this.img_logo.Name = "img_logo";
-            this.img_logo.Size = new System.Drawing.Size(229, 219);
-            this.img_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.img_logo.TabIndex = 0;
-            this.img_logo.TabStop = false;
-            // 
             // dgv_tabla
             // 
             this.dgv_tabla.AllowUserToAddRows = false;
@@ -240,6 +230,17 @@
             this.bt_actualizar.UseVisualStyleBackColor = true;
             this.bt_actualizar.Click += new System.EventHandler(this.bt_actualizar_Click);
             // 
+            // img_logo
+            // 
+            this.img_logo.BackColor = System.Drawing.Color.SlateGray;
+            this.img_logo.Image = global::Principal_Internet_elvis.Properties.Resources.Logo_del_programa;
+            this.img_logo.Location = new System.Drawing.Point(542, 15);
+            this.img_logo.Name = "img_logo";
+            this.img_logo.Size = new System.Drawing.Size(229, 219);
+            this.img_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_logo.TabIndex = 0;
+            this.img_logo.TabStop = false;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -257,13 +258,13 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MENU PRINCIPAL";
+            this.Text = "RED DIAMOND";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Principal_Resize);
             this.panel_botones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.img_logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tabla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
